@@ -251,7 +251,7 @@
         ],
         "settings": {
           "container": true,
-          "bg_color": "#22222a",
+          "bg_color": "#000000",
           "bg_style": "text-white",
           "row_": 1,
           "row_sm": 2,
@@ -272,7 +272,7 @@
         "type": "footer",
         "settings": {
           "container": true,
-          "bg_color": "#22222a",
+          "bg_color": "#000000",
           "bg_style": "text-white",
           "show_powered_by": false,
           "show_theme_by": false,
@@ -491,7 +491,7 @@
         ],
         "settings": {
           "container": true,
-          "bg_color": "#22222a",
+          "bg_color": "#000000",
           "bg_style": "text-white",
           "row_": 1,
           "row_sm": 2,
