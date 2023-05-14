@@ -4,9 +4,8 @@
 */
 
 {{ settings.font_headings | font_face: font_display: 'swap'  }}
-body{
- font-family: {{settings.font_body.family}};   
-}
+{{ settings.font_body | font_face: font_display: 'swap'  }}
+
 :root {
     --color-primary:                    {{ settings.color_primary }};
     --color-primary-lighten-10:         {{ settings.color_primary | color_lighten: 10 }};
@@ -37,4 +36,5 @@ body{
     --color-badge-sale:                 {{ settings.color_badge_sale }};
 
     --font-headings: {{ settings.font_headings.family }}, {{ settings.font_headings.fallback_families }};
+    --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
 }

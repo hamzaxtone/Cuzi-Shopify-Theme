@@ -1,7 +1,9 @@
 /* 
     Put here your own custom CSS/Liquid styles
 */
-
+body,h1,h2,h3,h4,h5,h6,p,a,button,input{
+    font-family: var(--font-body);
+  }
 /* Banner SLider start*/
 .custom-carousel {
     background: radial-gradient(42.5% 85.18% at 74.61% 49.93%, #FF8A9E 0%, #E37AA1 19%, #923874 59%, #5E1245 100%);
@@ -97,9 +99,7 @@
 body{
 overflow-x:hidden;
 }
-body,h1,h2,h3,h4,h5,h6,p,a,button,input{
-  font-family: 'Open Sans';
-}
+
 p{
 	font-size:16px;
 }
@@ -163,11 +163,11 @@ header .page_title span {
 color:#fff;
 } */
 ul#navbar-nav li a {
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
     color: #fff;
-    font-family: 'Open Sans';
-    font-weight: bold;
+    font-family: var(--font-body);
+    font-weight: 600;
 }
 /* .template-index ul#navbar-icons-nav li a {
     color: #fff;
@@ -180,14 +180,27 @@ ul#navbar-icons-nav li a {
 
 
 .txt-icon-desc .heading {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 25px;
+    font-family: 'Baloo';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 40px;
+/* identical to box height, or 160% */
+
+text-align: center;
+text-transform: uppercase;
+
+color: #000000;
 }
 
 .txt-icon-desc p {
     font-size: 16px;
-    line-height: 24px;
+line-height: 23px;
+/* or 144% */
+
+text-align: center;
+
+color: #6D6D6D;
 }
 .slider-product ul .product-item .product-item-title {
     margin-top: -40px;
@@ -203,7 +216,7 @@ ul#navbar-icons-nav li a {
 .slider-product ul .product-item .product-item-description {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Open Sans';
+    font-family: var(--font-body);
     text-align: left;
     padding-left: 10px;
 }
