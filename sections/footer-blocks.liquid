@@ -81,7 +81,7 @@
             </div>
   {% if section.settings.show_sep %}
         <hr 
-            class="my-0"
+            class="my-5"
             style="{{ section.settings.sep_color | prepend: 'background-color: ' | append: ';' }};">
     {% endif %}
         </div>
@@ -188,7 +188,12 @@
 
                     </li>
                 {% endfor %}
-
+                </ul>
+                {% if section.settings.show_sep %}
+        <hr 
+            class="my-5"
+            style="{{ section.settings.sep_color | prepend: 'background-color: ' | append: ';' }};">
+    {% endif %}
             </div>
 
         
