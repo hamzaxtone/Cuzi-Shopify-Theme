@@ -4,7 +4,7 @@
     "color_secondary": "#6c757d",
     "color_price": "#28a745",
     "color_badge_sale": "#dc3545",
-    "font_headings": "open_sans_n4",
+    "font_headings": "montserrat_n5",
     "favicon": "shopify:\/\/shop_images\/Untitled-2_2X_133da49a-8209-4d21-b55b-c110d89a3989.png",
     "minicart_img_width": "75",
     "minicart_img_height": "75",
@@ -49,30 +49,21 @@
               "title_size": "h3",
               "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
             }
-          },
-          "d849177d-1033-4719-8146-1d745abf5c04": {
-            "type": "image",
-            "settings": {
-              "title": "HERITAGE WHEEL TIMELESS DESIGN 2",
-              "title_size": "h3",
-              "description": "<p>sa asdadasdas d<\/p>"
-            }
           }
         },
         "block_order": [
-          "16124340768622aa4c-0",
-          "d849177d-1033-4719-8146-1d745abf5c04"
+          "16124340768622aa4c-0"
         ],
         "settings": {
           "container": false,
-          "controls": true,
+          "controls": false,
           "indicators": false,
           "style": "",
           "transition": "slide",
           "interval": 6,
-          "img_width": "1920",
-          "img_height": "1080",
-          "image_min_height": "550",
+          "img_width": "465",
+          "img_height": "556",
+          "image_min_height": "",
           "margin_top": 0,
           "margin_bottom": 8,
           "classes": "custom-carousel"
