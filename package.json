@@ -1,6 +1,6 @@
 {
-    "name": "ks-bootshop",
-    "version": "2.0.0",
+    "name": "Cuzi-Shopify-Theme by Hamzaxtone",
+    "version": "1.0.0",
     "description": "Free Shopify Theme powered by Bootstrap v5",
     "scripts": {
         "css": "sass --no-source-map scss/theme.scss:assets/theme.min.css",
