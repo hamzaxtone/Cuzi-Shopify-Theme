@@ -67,17 +67,17 @@
       "16131223138a584ff0": {
         "type": "newsletter",
         "settings": {
-          "heading": "Newsletter subscribe",
-          "subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
+          "heading": "There are many variations of Lorem available",
+          "subheading": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud aliquip ex ea commodo consequat.<\/p>",
           "light_bg": false,
           "heading_size": "h2",
-          "heading_alignment": "text-center",
+          "heading_alignment": "text-start",
           "subheading_size": "",
           "btn_color": "btn-outline-primary",
-          "padding_top": 0,
-          "padding_bottom": 0,
+          "padding_top": 10,
+          "padding_bottom": 10,
           "margin_top": 0,
-          "margin_bottom": 8
+          "margin_bottom": 0
         }
       },
       "161313402064cf991c": {
