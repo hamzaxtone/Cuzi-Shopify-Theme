@@ -44,6 +44,7 @@
           "16124340768622aa4c-0": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/cuzi-product.png",
               "title": "healthy JUICE",
               "title_size": "h3",
               "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
