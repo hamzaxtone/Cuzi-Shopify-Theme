@@ -7,12 +7,15 @@
     {% assign interval = false %}
 {% endif %}
 
+{% if section.settings.carousel-bg != blank %}
+    {% assign carouselBG = {{ section.settings.img | img_url: '1600x' , crop: 'center' }} %}
+{% endif %}
 <div
     id="{{ 'carousel-wrapper' | append: section.id }}" 
     
-        style="background-image: url('{% if section.settings.carousel-bg != blank %}{{ section.settings.img | img_url: 1600x , crop: center }}{% endif %}');"
+        style="background-image: url('{{ carouselBG }}');"
     
-    class="{% if section.settings.container %}container{% endif %} {{ mt }} {{ mb }} {% if section.settings.classes %}{{section.settings.classes}}{% endif %}">
+    class="asd {% if section.settings.container %}container{% endif %} {{ mt }} {{ mb }} {% if section.settings.classes %}{{section.settings.classes}}{% endif %}">
 
     <!-- Carousel -->
     <div
