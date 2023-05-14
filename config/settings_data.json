@@ -69,6 +69,9 @@
         "type": "newsletter",
         "settings": {
           "classes": "",
+          "followImage": "shopify:\/\/shop_images\/follow.png",
+          "followImage_url": "",
+          "newsletterRightImage": "shopify:\/\/shop_images\/recycle.png",
           "heading": "There are many variations of Lorem available",
           "subheading": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud aliquip ex ea commodo consequat.<\/p>",
           "light_bg": false,
@@ -756,9 +759,10 @@
           "520b9bd2-606b-4e5c-931a-f42933a357ea-1684067058d28a911f-0"
         ],
         "settings": {
+          "bg_image": "shopify:\/\/shop_images\/banner.png",
           "container": false,
-          "controls": true,
-          "indicators": true,
+          "controls": false,
+          "indicators": false,
           "style": "",
           "transition": "slide",
           "interval": 6,
