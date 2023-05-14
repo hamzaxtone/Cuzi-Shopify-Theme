@@ -19,7 +19,7 @@
           "shadow": "shadow-sm",
           "sticky": false,
           "logo": "shopify:\/\/shop_images\/Logo.svg",
-          "logo_height": "121",
+          "logo_height": "77",
           "menu": "main-menu",
           "menu_position": "mx-auto",
           "show_search": true,
