@@ -1,0 +1,87 @@
+{% assign pt = section.settings.padding_top | prepend: 'pt-' %}
+{% assign pb = section.settings.padding_bottom | prepend: 'pb-' %}
+{% assign mt = section.settings.margin_top | prepend: 'mt-' %}
+{% assign mb = section.settings.margin_bottom | prepend: 'mb-' %}
+
+<section 
+    id="full-width-image-section-{{ section.id }}" 
+    class="full-width-image-section {% if section.settings.light_bg %}bg-light{% endif %} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    <div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
+
+        <div class="image">
+            <!-- Image -->
+{% if section.settings.Image == blank %}
+{{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+{% else %}
+<img 
+    class="many-variations-img img-fluid mb-3 mb-md-0 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}rounded{% endif %}"
+    src="{{ section.settings.Image | img_url: img_size, crop: 'center' }}"
+    alt="{{ section.settings.Image.alt | escape }}" 
+    
+    loading="lazy">
+{% endif %}
+        </div>
+
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "HTML",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "Image",
+            "label": "Full Width Image",
+        },
+        {
+            "type": "checkbox",
+            "id": "container",
+            "label": "Wrap in container",
+            "default": true
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "label": "Padding top",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "margin_top",
+            "label": "Margin top",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "margin_bottom",
+            "label": "Margin bottom",
+            "min": 0,
+            "max": 12,
+            "step": 1,
+            "default": 7
+        }
+    ],
+    "presets": [
+        {
+            "name": "Full Section Image",
+            "category": "Image"
+        }
+    ]
+}
+{% endschema %}

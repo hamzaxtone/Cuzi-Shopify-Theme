@@ -20,7 +20,7 @@
             
             
             <div class="col-md-4">
-                <div class="image-box-tex">
+                <div class="image-box-tex text-end">
                     <!-- Image -->
 {% if section.settings.box1_img == blank %}
 {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
@@ -37,7 +37,7 @@
                     {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
                     {% unless section.settings.box1_desc == blank %}<p>{{ section.settings.box1_desc }}</p>{% endunless %}
                 </div>
-                <div class="image-box-tex">
+                <div class="image-box-tex text-end">
                     <!-- Image -->
 {% if section.settings.box2_img == blank %}
 {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
@@ -71,7 +71,7 @@
 {% endif %}
             </div>
             <div class="col-md-4">
-                <div class="image-box-tex">
+                <div class="image-box-tex text-start">
                     <!-- Image -->
 {% if section.settings.box3_img == blank %}
 {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
@@ -88,7 +88,7 @@
                     {% unless section.settings.box3_heading == blank %}<h6>{{ section.settings.box3_heading }}</h6>{% endunless %}
                     {% unless section.settings.box3_desc == blank %}<p>{{ section.settings.box3_desc }}</p>{% endunless %}
                 </div>
-                <div class="image-box-tex">
+                <div class="image-box-tex text-start">
                     <!-- Image -->
 {% if section.settings.box4_img == blank %}
 {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
