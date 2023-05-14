@@ -20,7 +20,10 @@
         id="footer-blocks" 
         class="overflow-hidden {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ section.settings.bg_style }}"
         style="{{ section.settings.bg_color | prepend: 'background-color: ' | append: ';' }}">
-<div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
+<div class="footer-top">
+
+        
+        <div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
             <div class="row">
                 <div class="col-md-6">
                     <div class="image">
