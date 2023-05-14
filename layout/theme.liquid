@@ -185,11 +185,12 @@
             {{ content_for_layout }}
         </main>
 
-        {% section 'footer-logo-list' %}
+      <div class="footer-main-sec">
+        {% section 'footer-top' %}
       	{% section 'footer-blocks' %}
       	{% section 'footer-blocks-bottom' %}
         {% section 'footer' %}
-
+      </div>
         {% render 'toast' %}
     
 {% include 'swymSnippet' %}

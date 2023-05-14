@@ -20,6 +20,67 @@
         id="footer-blocks" 
         class="overflow-hidden {{ pt }} {{ pb }} {{ mt }} {{ mb }} {{ section.settings.bg_style }}"
         style="{{ section.settings.bg_color | prepend: 'background-color: ' | append: ';' }}">
+        <div class="footer-top">
+
+        
+        <div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="image">
+                        <!-- Image -->
+                        {% if section.settings.logoImage == blank %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+                        {% else %}
+                        <img 
+                            class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                            src="{{ section.settings.logoImage | img_url: img_size, crop: 'center' }}"
+                            alt="{{ section.settings.logoImage.alt | escape }}" 
+                            
+                            loading="lazy">
+                        {% endif %}
+                                </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="small-img-box">
+                        <!-- Image -->
+                        {% if section.settings.locationIcon == blank %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+                        {% else %}
+                        <img 
+                            class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                            src="{{ section.settings.locationIcon | img_url: img_size, crop: 'center' }}"
+                            alt="{{ section.settings.locationIcon.alt | escape }}" 
+                            
+                            loading="lazy">
+                        {% endif %}
+                        <div class="cont-tab">
+                            <h6>Location</h6>
+                            <p>{{ block.settings.locationText | escape }}</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-md-3">
+                    <div class="small-img-box">
+                        <!-- Image -->
+                        {% if section.settings.emailIcon == blank %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+                        {% else %}
+                        <img 
+                            class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                            src="{{ section.settings.emailIcon | img_url: img_size, crop: 'center' }}"
+                            alt="{{ section.settings.emailIcon.alt | escape }}" 
+                            
+                            loading="lazy">
+                        {% endif %}
+                        <div class="cont-tab">
+                            <h6>Email Us</h6>
+                            <p>{{ block.settings.emailText | escape }}</p>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
 
             <ul class="footer-blocks-grid list-unstyled row {{ row_ }} {{ row_sm }} {{ row_md }} {{ row_lg }} {{ row_xl }} {{ row_xxl }} {{ gutter_mobile }} {{ gutter_tablet }} {{ gutter_desktop }}">
@@ -56,6 +117,41 @@
                                 </ul>
                             </div>
                         {% endif %}
+                        {% if block.type == 'Newsletter' %}
+                          <!-- Newsletter form -->
+                          {% form 'customer' %}
+                              <input type="hidden" name="contact[tags]" value="newsletter">
+
+                              {{ form.errors | default_errors }}
+
+                              {% if form.posted_successfully? %}
+                                  <p class="newsletter-alert alert alert-success">
+                                      {{ 'general.newsletter.confirmation' | t }}
+                                  </p>
+                              {% endif %}
+
+                              <div class="input-group justify-content-start flex-nowrap">
+
+                                  <!-- Newsletter input field -->
+                                  <input 
+                                      type="email" 
+                                      name="contact[email]" 
+                                      size="30"
+                                      class="form-control w-auto flex-grow-0" 
+                                      value="{% if customer.email != blank %}{{ customer.email }}{% endif %}" 
+                                      placeholder="Your Email Adderss..." 
+                                      aria-label="{{ 'general.newsletter.label' | t }}"
+                                      required>
+
+                                      <button 
+                                          type="submit" 
+                                          name="commit" 
+                                          class="btn flex-shrink-0 {{ section.settings.btn_color }}">
+                                      {{ 'general.newsletter.submit' | t }}
+                                  </button>
+                              </div>
+                          {% endform %}
+                      {% endif %}
 
                         {% if block.type == 'social_menu' %}
                             <div class="social-menu">
@@ -94,6 +190,41 @@
         {
             "type": "header",
             "content": "General settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "logoImage",
+            "label": "Logo Image"
+        },
+        {
+            "type": "Location",
+            "content": "General settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "locationIcon",
+            "label": "Location Icon"
+        },
+        {
+            "type": "text",
+            "id": "locationText",
+            "label": "Address",
+            "info": "Leave empty to disable"
+        },
+        {
+            "type": "Email Info",
+            "content": "General settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "emailIcon",
+            "label": "Email Icon"
+        },
+        {
+            "type": "text",
+            "id": "emailText",
+            "label": "Email ID",
+            "info": "Leave empty to disable"
         },
         {
             "type": "checkbox",
@@ -279,6 +410,24 @@
                         {  "value": "h5", "label": "H5" },
                         {  "value": "h6", "label": "H6" }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "Newsletter",
+            "name": "Newsletter",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Heading",
+                    "info": "Leave empty to disable"
+                },
+                {
+                    "type": "richtext",
+                    "id": "subHeading",
+                    "label": "Sub Heading",
+                    "info": "Leave empty to disable"
                 }
             ]
         },
