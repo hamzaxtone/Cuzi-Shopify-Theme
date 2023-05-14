@@ -228,7 +228,7 @@
             "type": "menu",
             "settings": {
               "menu": "",
-              "heading": "MY ACCOUNT",
+              "heading": "Customer service",
               "heading_size": "h5",
               "direction": "flex-column"
             }
