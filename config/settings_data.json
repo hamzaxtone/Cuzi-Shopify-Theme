@@ -150,6 +150,7 @@
         "settings": {
           "container": true,
           "light_bg": false,
+          "img": "shopify:\/\/shop_images\/product2.png",
           "img_width": "720",
           "img_height": "720",
           "img_thumbnail": true,
