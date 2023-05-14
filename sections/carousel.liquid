@@ -13,7 +13,7 @@
     <style>
     
     .{{section.settings.classes}} {
-        background-image: url({{ section.settings.bg_image }});
+        background-image: url({{ section.settings.bg_image | crop: 'center' }});
         background-size: cover;
         background-repeat: no-repeat;
         background-position: bottom center;
