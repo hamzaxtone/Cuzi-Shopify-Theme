@@ -7,7 +7,7 @@
     {% assign interval = false %}
 {% endif %}
 
-
+bg_image
 <div
     id="{{ 'carousel-wrapper' | append: section.id }}" 
     
@@ -131,6 +131,11 @@
         {
             "type": "header",
             "content": "General settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "bg_image",
+            "label": "Center Product Image"
         },
         {
             "type": "checkbox",

@@ -5,57 +5,98 @@
 
 <section 
     id="newsletter-{{ section.id }}" 
-    class="{% if section.settings.classes %}{{section.settings.classes}}{% endif %} newsletter {% if section.settings.light_bg %}bg-light{% endif %} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    class="{% if section.settings.classes %}{{section.settings.classes}}{% endif %} newsletter-section {% if section.settings.light_bg %}bg-light{% endif %} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
     <div class="container">
 
-        <div class="heading-wrapper mb-3 overflow-hidden">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="overflow-hidden">
 
-            <h2 class="heading mb-1 {{ section.settings.heading_alignment }} {{ section.settings.heading_size }}">
-                {{ section.settings.heading }}
-            </h2>
-
-            
-
-        </div>
-
-        <!-- Newsletter form -->
-        {% form 'customer' %}
-            <input type="hidden" name="contact[tags]" value="newsletter">
-    
-            {{ form.errors | default_errors }}
-
-            {% if form.posted_successfully? %}
-                <p class="newsletter-alert alert alert-success">
-                    {{ 'general.newsletter.confirmation' | t }}
-                </p>
-            {% endif %}
-    
-            <div class="input-group justify-content-center flex-nowrap">
-                
-                <!-- Newsletter input field -->
-                <input 
-                    type="email" 
-                    name="contact[email]" 
-                    size="30"
-                    class="form-control w-auto flex-grow-0" 
-                    value="{% if customer.email != blank %}{{ customer.email }}{% endif %}" 
-                    placeholder="{{ 'general.newsletter.label' | t }}" 
-                    aria-label="{{ 'general.newsletter.label' | t }}"
-                    required>
-
-                    <button 
-                        type="submit" 
-                        name="commit" 
-                        class="btn flex-shrink-0 {{ section.settings.btn_color }}">
-                    {{ 'general.newsletter.submit' | t }}
-                </button>
-            </div>
-        {% endform %}
-        {% unless section.settings.subheading == blank %}
-                <div class="subheading rte text-muted {{ section.settings.subheading_size }} {{ section.settings.heading_alignment }}">
-                    {{ section.settings.subheading }}
+                    <h2 class="heading mb-1 {{ section.settings.heading_alignment }} {{ section.settings.heading_size }}">
+                        {{ section.settings.heading }}
+                    </h2>
+        
+                    
+        
                 </div>
-        {% endunless %}
+        
+                <!-- Newsletter form -->
+                {% form 'customer' %}
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+            
+                    {{ form.errors | default_errors }}
+        
+                    {% if form.posted_successfully? %}
+                        <p class="newsletter-alert alert alert-success">
+                            {{ 'general.newsletter.confirmation' | t }}
+                        </p>
+                    {% endif %}
+            
+                    <div class="input-group">
+                        
+                        <!-- Newsletter input field -->
+                        <input 
+                            type="email" 
+                            name="contact[email]" 
+                            size="30"
+                            class="form-control w-100 flex-grow-0" 
+                            value="{% if customer.email != blank %}{{ customer.email }}{% endif %}" 
+                            placeholder="{{ 'general.newsletter.label' | t }}" 
+                            aria-label="{{ 'general.newsletter.label' | t }}"
+                            required>
+        
+                            <button 
+                                type="submit" 
+                                name="commit" 
+                                class="btn flex-shrink-0 {{ section.settings.btn_color }}">
+                                <!-- 
+                                    {{ 'general.newsletter.submit' | t }}
+                                 -->
+                            <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.7173 1.5707C12.6031 1.75291 14.6916 1.32634 16.796 1.23419C18.3813 1.16507 19.9653 1.03941 21.5487 0.919324C23.8957 0.741296 26.2374 0.518587 28.5524 0.054319C28.9522 -0.025968 29.3514 -0.0622716 29.6779 0.27633C30.0937 0.707785 30.1157 1.23698 29.6926 1.77874C29.1375 2.48946 28.547 3.17015 27.9833 3.87389C25.6723 6.76212 23.4978 9.76555 21.2308 12.6915C19.8727 14.4438 18.488 16.1725 17.0093 17.8145C15.35 19.6562 14.0005 21.7178 12.941 23.9903C12.873 24.1362 12.8024 24.2821 12.7211 24.4204C12.4505 24.8798 12.122 25.0592 11.7062 24.9831C11.227 24.8958 10.9632 24.6305 10.8752 24.0755C10.7939 23.5603 10.7659 23.0359 10.6939 22.5186C10.4634 20.8626 10.2201 19.2087 9.98623 17.5534C9.83163 16.4594 9.69169 15.3598 9.737 14.2539C9.77832 13.2633 9.40648 12.5519 8.67612 11.9515C6.07389 9.81163 3.49164 7.64528 0.903406 5.48731C0.738809 5.34977 0.57088 5.21293 0.423609 5.05585C-0.309415 4.27392 -0.0635185 3.23229 0.948054 2.95303C1.80502 2.71636 2.67799 2.54461 3.54695 2.35751C5.83532 1.86531 8.14568 1.57628 10.7166 1.57L10.7173 1.5707ZM2.43476 4.42193C2.45808 4.53852 2.53671 4.57203 2.59536 4.62021C4.90438 6.52894 7.2134 8.43768 9.52443 10.3436C10.0189 10.7513 10.2794 10.759 10.8185 10.4016C11.5876 9.89192 12.3492 9.3711 13.1269 8.87611C14.6989 7.87497 16.2083 6.76422 17.8702 5.91736C19.3056 5.1864 20.761 4.48895 22.0645 3.50526C22.3557 3.28535 22.6502 3.06683 22.9527 2.74708C20.0833 3.08777 17.2758 3.16247 14.4697 3.25044C11.1964 3.35307 7.92444 3.48083 4.67981 3.99397C3.92813 4.11265 3.17778 4.23832 2.43476 4.42123V4.42193ZM25.3517 3.8299C25.0665 3.99885 24.782 4.16781 24.4968 4.33606C21.598 6.04373 18.5993 7.55731 15.7111 9.28523C14.5356 9.98826 13.3868 10.7353 12.2779 11.5493C11.6649 11.9996 11.379 12.5882 11.4116 13.3889C11.4923 15.3424 11.6542 17.2846 12.0167 19.2045C12.1293 19.8 12.2293 20.4004 12.4212 21.0134C12.4905 20.9254 12.5352 20.8752 12.5731 20.82C14.0938 18.5825 15.7798 16.4831 17.4891 14.4047C19.6695 11.7539 21.8805 9.13024 23.8357 6.28668C24.3768 5.49987 24.9086 4.70678 25.3517 3.8299Z" fill="black"/>
+                            </svg>
+                                
+                        </button>
+                    </div>
+                {% endform %}
+                {% unless section.settings.subheading == blank %}
+                        <div class="subheading rte text-muted {{ section.settings.subheading_size }} {{ section.settings.heading_alignment }}">
+                            {{ section.settings.subheading }}
+                        </div>
+                {% endunless %}
+                <div class="follow-div">
+                  <!-- Image -->
+                {% if section.settings.followImage == blank %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+            {% else %}
+                {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+                <a href="{{ section.settings.followImage_url }}">
+                <img 
+                    class="image-with-text-img img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                    src="{{ section.settings.followImage | img_url: img_size, crop: 'center' }}"
+                    alt="{{ section.settings.img.alt | escape }}" 
+                    
+                    loading="lazy">
+                  </a>
+            {% endif %}
+                </div>
+            </div>
+            <div class="col-md-4">
+<!-- Image -->
+{% if section.settings.newsletterRightImage == blank %}
+{{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+{% else %}
+{% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+<img 
+    class="image-with-text-img img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+    src="{{ section.settings.newsletterRightImage | img_url: img_size, crop: 'center' }}"
+    alt="{{ section.settings.img.alt | escape }}" 
+    
+    loading="lazy">
+{% endif %}
+            </div>
+        </div>
+        
 
     </div>
 </section>
@@ -74,6 +115,21 @@
             "id": "classes",
             "label": "Class"
 		},
+    {
+      "type": "image_picker",
+      "id": "followImage",
+      "label": "Follow Image"
+  },
+  {
+    "type": "url",
+    "id": "followImage_url",
+    "label": "Follow Image link"
+},
+  {
+    "type": "image_picker",
+    "id": "newsletterRightImage",
+    "label": "Image"
+},
         {
             "type": "text",
             "id": "heading",
