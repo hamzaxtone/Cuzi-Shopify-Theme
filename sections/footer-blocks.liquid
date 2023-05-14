@@ -80,6 +80,11 @@
                 </div>
             </div>
         </div>
+        {% if section.settings.show_sep %}
+        <hr 
+            class="my-0"
+            style="{{ section.settings.sep_color | prepend: 'background-color: ' | append: ';' }};">
+    {% endif %}
     </div>
   
         <div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
@@ -193,6 +198,18 @@
 {
     "name": "Footer blocks",
     "settings": [
+    {
+        "type": "checkbox",
+        "id": "show_sep",
+        "label": "Show separator (border)",
+        "default": true
+    },
+    {
+        "type": "color",
+        "id": "sep_color",
+        "label": "Separator color",
+        "default": "#dee2e6"
+    },
       {
             "type": "image_picker",
             "id": "logoImage",
