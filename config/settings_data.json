@@ -1588,13 +1588,13 @@
       "f533d458-2283-4b06-bc6a-cd39a3520a0d": {
         "type": "many-variations",
         "settings": {
+          "classes": "",
           "container": true,
           "light_bg": false,
-          "bg_img": "shopify:\/\/shop_images\/cuzi-product.png",
-          "img": "shopify:\/\/shop_images\/cuzi-product.png",
-          "img_width": "720",
-          "img_height": "720",
-          "img_thumbnail": true,
+          "center_img": "shopify:\/\/shop_images\/cuzi-product.png",
+          "img_width": "",
+          "img_height": "",
+          "img_thumbnail": false,
           "img_alignment": "",
           "heading": "There are many variations of Lorem available",
           "box1_img": "shopify:\/\/shop_images\/corn.svg",
@@ -1627,6 +1627,7 @@
       "520b9bd2-606b-4e5c-931a-f42933a357ea",
       "161313402064cf991c",
       "16129467980997b2cd",
+      "f533d458-2283-4b06-bc6a-cd39a3520a0d",
       "16418457389039b385",
       "164166846465a1cf74",
       "161243980752a5ed7a",
@@ -1646,8 +1647,7 @@
       "16136560969da8aed2",
       "16131223138a584ff0",
       "16134715004dcac0f0",
-      "16416780431bbd7218",
-      "f533d458-2283-4b06-bc6a-cd39a3520a0d"
+      "16416780431bbd7218"
     ]
   },
   "presets": {
