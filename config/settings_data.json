@@ -811,7 +811,7 @@
         "type": "full-section-image",
         "settings": {
           "Image": "shopify:\/\/shop_images\/text-image.svg",
-          "classes": "textImage-minu",
+          "classes": "textImage-minus",
           "container": false,
           "padding_top": 0,
           "padding_bottom": 0,
