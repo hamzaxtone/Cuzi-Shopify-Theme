@@ -13,13 +13,13 @@
       "navbar": {
         "type": "navbar",
         "settings": {
-          "container": false,
+          "container": true,
           "bg_color": "rgba(0,0,0,0)",
           "background_style": "navbar-light",
           "shadow": "shadow-sm",
           "sticky": false,
           "logo": "shopify:\/\/shop_images\/Logo.svg",
-          "logo_height": "121",
+          "logo_height": "77",
           "menu": "main-menu",
           "menu_position": "mx-auto",
           "show_search": true,
@@ -483,8 +483,9 @@
           "161313402064cf991c-0": {
             "type": "content",
             "settings": {
-              "heading": "FREE SHIPPING",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
+              "img": "shopify:\/\/shop_images\/sugar.svg",
+              "heading": "No Sugar",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -492,8 +493,9 @@
           "161313402064cf991c-1": {
             "type": "content",
             "settings": {
-              "heading": "30 DAYS MONEY BACK",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
+              "img": "shopify:\/\/shop_images\/juice.svg",
+              "heading": "100% Pure juice",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -501,17 +503,9 @@
           "161313402064cf991c-2": {
             "type": "content",
             "settings": {
-              "heading": "SAFE PAYMENT",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
-              "btn_label": "",
-              "btn_url": "#"
-            }
-          },
-          "161313402064cf991c-3": {
-            "type": "content",
-            "settings": {
-              "heading": "LOYALTY CUSTOMER",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
+              "img": "shopify:\/\/shop_images\/natural.svg",
+              "heading": "natural Occurring",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -520,8 +514,7 @@
         "block_order": [
           "161313402064cf991c-0",
           "161313402064cf991c-1",
-          "161313402064cf991c-2",
-          "161313402064cf991c-3"
+          "161313402064cf991c-2"
         ],
         "settings": {
           "heading": "",
@@ -540,10 +533,10 @@
           "btn_size": "btn-sm",
           "row_": 1,
           "row_sm": 2,
-          "row_md": 2,
-          "row_lg": 4,
-          "row_xl": 4,
-          "row_xxl": 4,
+          "row_md": 3,
+          "row_lg": 3,
+          "row_xl": 3,
+          "row_xxl": 3,
           "gutter_mobile": 3,
           "gutter_tablet": 4,
           "gutter_desktop": 6,
