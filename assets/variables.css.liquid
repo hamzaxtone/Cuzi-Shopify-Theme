@@ -4,7 +4,9 @@
 */
 
 {{ settings.font_headings | font_face: font_display: 'swap'  }}
-
+body{
+ font-family: {{settings.font_body}};   
+}
 :root {
     --color-primary:                    {{ settings.color_primary }};
     --color-primary-lighten-10:         {{ settings.color_primary | color_lighten: 10 }};

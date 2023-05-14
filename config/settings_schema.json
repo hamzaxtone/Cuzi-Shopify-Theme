@@ -90,6 +90,17 @@
     ]
   },
   {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "default": "sans-serif",
+        "label": "Body font family"
+      }
+    ]
+  },
+  {
     "name": "Favicon",
     "settings": [
       {
