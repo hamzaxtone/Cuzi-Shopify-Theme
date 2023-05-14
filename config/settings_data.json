@@ -503,6 +503,7 @@
           "161313402064cf991c-2": {
             "type": "content",
             "settings": {
+              "img": "shopify:\/\/shop_images\/natural.svg",
               "heading": "natural Occurring",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
