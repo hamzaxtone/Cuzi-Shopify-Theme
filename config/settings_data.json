@@ -232,22 +232,12 @@
               "heading_size": "h5",
               "direction": "flex-column"
             }
-          },
-          "468f5cea-de04-4404-8c8e-da00b85cee28": {
-            "type": "menu",
-            "settings": {
-              "menu": "",
-              "heading": "Information",
-              "heading_size": "h5",
-              "direction": "flex-column"
-            }
           }
         },
         "block_order": [
           "e00e2603-5c9c-4373-9917-00d8e58fb8f5",
           "84d98f57-a71d-49ea-a1a3-3fab0b59ff64",
-          "9f673a8b-4319-4dcd-aa1c-5a7fe8562e4f",
-          "468f5cea-de04-4404-8c8e-da00b85cee28"
+          "9f673a8b-4319-4dcd-aa1c-5a7fe8562e4f"
         ],
         "settings": {
           "container": true,
