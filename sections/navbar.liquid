@@ -27,17 +27,7 @@
                     height="{{ section.settings.logo_height | escape }}">
             {% endif %}
         </a>
-        <!-- Navbar toggle -->
-        <button 
-            class="navbar-toggler me-3" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbar-collapse" 
-            aria-controls="navbar-collapse" 
-            aria-expanded="false" 
-            aria-label="{{ 'general.accessibility.toogle_nav' | t }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        
 
         <!-- Navbar icons nav -->
         <div class="navbar-expand ms-0 ms-{{ section.settings.breakpoint }}-3 order-{{ section.settings.breakpoint }}-1">
@@ -129,6 +119,17 @@
                         </div>
                     </li>
                 {% endif %}
+                <!-- Navbar toggle -->
+        <button 
+            class="navbar-toggler me-3" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbar-collapse" 
+            aria-controls="navbar-collapse" 
+            aria-expanded="false" 
+            aria-label="{{ 'general.accessibility.toogle_nav' | t }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
             </ul>
         </div>
 
