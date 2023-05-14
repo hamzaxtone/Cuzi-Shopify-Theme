@@ -23,7 +23,7 @@
           "logo_height": "77",
           "menu": "main-menu",
           "menu_position": "mx-auto",
-          "show_search": true,
+          "show_search": false,
           "show_account": true,
           "cart_badge_color": "#0d6efd",
           "breakpoint": "lg"
