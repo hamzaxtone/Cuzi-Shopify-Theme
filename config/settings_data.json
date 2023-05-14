@@ -50,18 +50,19 @@
               "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
             }
           },
-          "d849177d-1033-4719-8146-1d745abf5c04": {
+          "31dbf3de-2386-401d-aaaf-2872cd1bbac3": {
             "type": "image",
             "settings": {
-              "title": "HERITAGE WHEEL TIMELESS DESIGN 2",
+              "image": "shopify:\/\/shop_images\/cuzi-product.png",
+              "title": "healthy JUICE",
               "title_size": "h3",
-              "description": "<p>sa asdadasdas d<\/p>"
+              "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
             }
           }
         },
         "block_order": [
           "16124340768622aa4c-0",
-          "d849177d-1033-4719-8146-1d745abf5c04"
+          "31dbf3de-2386-401d-aaaf-2872cd1bbac3"
         ],
         "settings": {
           "container": true,
