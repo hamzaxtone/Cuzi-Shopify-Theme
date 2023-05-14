@@ -248,13 +248,15 @@
           "39c50463-6326-44ad-b203-d7c73bc1c863"
         ],
         "settings": {
+          "show_sep": true,
+          "sep_color": "#dee2e6",
           "logoImage": "shopify:\/\/shop_images\/Logo.svg",
           "locationIcon": "shopify:\/\/shop_images\/location.svg",
           "locationText": "Denver, Colorado",
           "emailIcon": "shopify:\/\/shop_images\/email.svg",
           "emailText": "support.demo@gmail.com",
           "container": true,
-          "bg_color": "#000000",
+          "bg_color": "rgba(0,0,0,0)",
           "bg_style": "text-white",
           "row_": 1,
           "row_sm": 2,
@@ -275,7 +277,7 @@
         "type": "footer",
         "settings": {
           "container": true,
-          "bg_color": "#000000",
+          "bg_color": "rgba(0,0,0,0)",
           "bg_style": "text-white",
           "show_powered_by": false,
           "show_theme_by": false,
