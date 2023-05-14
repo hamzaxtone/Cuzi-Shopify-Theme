@@ -69,6 +69,9 @@
         "type": "newsletter",
         "settings": {
           "classes": "",
+          "followImage": "shopify:\/\/shop_images\/follow.png",
+          "followImage_url": "",
+          "newsletterRightImage": "shopify:\/\/shop_images\/recycle.png",
           "heading": "There are many variations of Lorem available",
           "subheading": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud aliquip ex ea commodo consequat.<\/p>",
           "light_bg": false,
