@@ -761,8 +761,8 @@
         "settings": {
           "bg_image": "shopify:\/\/shop_images\/banner.png",
           "container": false,
-          "controls": true,
-          "indicators": true,
+          "controls": false,
+          "indicators": false,
           "style": "",
           "transition": "slide",
           "interval": 6,
