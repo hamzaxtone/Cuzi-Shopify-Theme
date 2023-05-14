@@ -759,6 +759,7 @@
           "520b9bd2-606b-4e5c-931a-f42933a357ea-1684067058d28a911f-0"
         ],
         "settings": {
+          "bg_image": "shopify:\/\/shop_images\/banner.png",
           "container": false,
           "controls": true,
           "indicators": true,
