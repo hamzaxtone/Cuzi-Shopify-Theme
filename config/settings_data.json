@@ -544,25 +544,6 @@
           "margin_bottom": 7
         }
       },
-      "1613465098c76677b8": {
-        "type": "richtext",
-        "disabled": true,
-        "settings": {
-          "heading": "Richtext",
-          "subheading": "<p>Write something catchy for this section.<\/p>",
-          "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
-          "light_bg": true,
-          "heading_size": "h2",
-          "subheading_size": "",
-          "text_size": "",
-          "text_alignment": "text-center",
-          "max_width": "768",
-          "padding_top": 7,
-          "padding_bottom": 6,
-          "margin_top": 0,
-          "margin_bottom": 0
-        }
-      },
       "161346609112cd0f90": {
         "type": "video",
         "disabled": true,
@@ -855,16 +836,6 @@
           "padding_bottom": 3,
           "margin_top": 0,
           "margin_bottom": 0
-        }
-      },
-      "1613737250d2b7859f": {
-        "type": "separator",
-        "disabled": true,
-        "settings": {
-          "container": true,
-          "bg_color": "#dee2e6",
-          "margin_top": 9,
-          "margin_bottom": 7
         }
       },
       "collection-template": {
@@ -1613,6 +1584,37 @@
           "margin_bottom": 7,
           "classes": "custom-carousel"
         }
+      },
+      "f533d458-2283-4b06-bc6a-cd39a3520a0d": {
+        "type": "many-variations",
+        "settings": {
+          "container": true,
+          "light_bg": false,
+          "img_width": "720",
+          "img_height": "720",
+          "img_thumbnail": true,
+          "img_alignment": "",
+          "heading": "Image with text",
+          "box1_heading": "Image with text",
+          "box1_desc": "<p>Write something catchy for this section.<\/p>",
+          "box2_heading": "Image with text",
+          "box2_desc": "<p>Write something catchy for this section.<\/p>",
+          "box3_heading": "Image with text",
+          "box3_desc": "<p>Write something catchy for this section.<\/p>",
+          "box4_heading": "Image with text",
+          "box4_desc": "<p>Write something catchy for this section.<\/p>",
+          "heading_size": "h2",
+          "subheading_size": "",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "btn_label": "Learn more",
+          "btn_url": "",
+          "btn_color": "btn-outline-primary",
+          "btn_size": "",
+          "padding_top": 0,
+          "padding_bottom": 0,
+          "margin_top": 0,
+          "margin_bottom": 7
+        }
       }
     },
     "content_for_index": [
@@ -1636,11 +1638,10 @@
       "161368561105e641b5",
       "1613321883059203ae",
       "16136560969da8aed2",
-      "1613737250d2b7859f",
       "16131223138a584ff0",
-      "1613465098c76677b8",
       "16134715004dcac0f0",
-      "16416780431bbd7218"
+      "16416780431bbd7218",
+      "f533d458-2283-4b06-bc6a-cd39a3520a0d"
     ]
   },
   "presets": {
