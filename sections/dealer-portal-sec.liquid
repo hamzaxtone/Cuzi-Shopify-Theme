@@ -1,0 +1,417 @@
+{% capture max_width %}
+    {% unless section.settings.max_width == blank %}
+        {{ section.settings.max_width | prepend: 'max-width: ' | append: 'px;' }}
+    {% endunless %}
+{% endcapture %}
+ 
+<article class="">
+                               
+    <div 
+        class="container mx-auto"
+        style="{{ max_width }}">
+                                 
+      <div class="google-sheet-sec">
+      <table class="google-sheet-output table table-hover table-striped"></table>       
+        
+        
+   
+        
+          
+              
+                
+           
+             
+        
+         
+      </div>                                                                                             
+  </div>                                                                            
+</article>    
+    
+  
+<!--   https://cdn.shopify.com/s/files/1/0586/8470/2877/files/sr12-hyper-silver_256x256_crop_center.jpg -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  
+{% schema %}
+{
+    "name": "Dealer Portal",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General settings"
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Content max-width (px)",
+            "info": "Adjust post content width (in pixels). Leave empty to use the container.",
+            "default": "768"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "label": "Heading size",
+            "default": "display-5",
+            "options": [
+                { "group": "Display", "value": "display-1", "label": "Display 1" },
+                { "group": "Display", "value": "display-2", "label": "Display 2" },
+                { "group": "Display", "value": "display-3", "label": "Display 3" },
+                { "group": "Display", "value": "display-4", "label": "Display 4" },
+                { "group": "Display", "value": "display-5", "label": "Display 5" },
+                { "group": "Display",  "value": "display-6", "label": "Display 6" },
+                { "group": "Heading", "value": "h1", "label": "H1" },
+                { "group": "Heading", "value": "h2", "label": "H2" },
+                { "group": "Heading", "value": "h3", "label": "H3" },
+                { "group": "Heading", "value": "h4", "label": "H4" },
+                { "group": "Heading", "value": "h5", "label": "H5" },
+                { "group": "Heading", "value": "h6", "label": "H6" }
+            ]
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.addtocartjs {outline: none;white-space: nowrap;border: 1px solid;}
+
+.addtocartjs:hover {background: #000;color: #fff;}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+background-color
+}
+.table.table-hover.table-striped {
+    border: 1px solid #ececec;
+}
+.table > tr > th, .table > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #dddddd;
+}
+.table > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dddddd;
+}
+.table-striped > tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+td.item-info-container {
+    padding-top: 20px !important;
+}
+
+
+{% endstylesheet %}
+
+{% javascript %}
+ 
+const sheetId = '1pC-KtQ2drDxe1mfsmocqn8kHolbtP-guQyrtpFy74e8';
+const base = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?`;
+const sheetName = 'user-data';
+const query = encodeURIComponent('Select *')
+const url = `${base}&sheet=${sheetName}&tq=${query}`
+ 
+const data = []
+document.addEventListener('DOMContentLoaded', init)
+ 
+const output = document.querySelector('.google-sheet-output')
+ 
+function init() {
+    fetch(url)
+        .then(res => res.text())
+        .then(rep => {
+            //Remove additional text and extract only JSON:
+            const jsonData = JSON.parse(rep.substring(47).slice(0, -2));
+            //console.log(rep)
+			//console.log(jsonData); 
+
+            const colz = [];
+            const tr = document.createElement('tr');
+            //Extract column labels
+const th = document.createElement('th');
+                    th.innerText = "#";
+                    tr.appendChild(th);            
+
+jsonData.table.cols.forEach((heading) => {
+                if (heading.label) {
+                    let column = heading.label;
+                    colz.push(column);
+                    const th = document.createElement('th');
+                    th.innerText = column;
+                    tr.appendChild(th);
+                }
+            })
+			const thA = document.createElement('th');
+			thA.innerText = "Action";
+			tr.appendChild(thA);
+            output.appendChild(tr);
+ 
+            //extract row data:
+            jsonData.table.rows.forEach((rowData,index) => {
+//console.log(index);
+                const row = {};
+row[0] = index; 
+                colz.forEach((ele, ind) => {
+                    row[ele] = (rowData.c[ind] != null) ? rowData.c[ind].v : '';
+                })
+                data.push(row);
+            })
+            processRows(data);
+        })
+}
+  
+function processRows(json) {
+    json.forEach((row) => {
+ 
+        const tr = document.createElement('tr');
+        const keys = Object.keys(row);
+     
+        keys.forEach((key) => {
+            const td = document.createElement('td');
+            td.textContent = row[key];
+			//console.log(row);
+            tr.appendChild(td);
+        })
+		const tdA = document.createElement('td');
+		tdA.innerHTML = "<button class='addtocartjs'>Add to Cart</button>";
+		tr.appendChild(tdA);
+        output.appendChild(tr);
+    });
+
+
+asd();
+}
+
+
+
+
+/**
+//add to cart
+let xhr = new XMLHttpRequest();
+xhr.open("POST", "/cart/add.js");
+
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.onload = () => console.log(xhr.responseText);
+
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    //console.log(xhr.status);
+    //console.log(xhr.responseText);
+	if( xhr.status == 200 ){
+		
+	}else{
+		
+	}
+  }};
+
+let add_to_cart_data = `{
+"items": [
+    {
+      "quantity": 1,
+      "id": "41772642992285",
+      "properties": {
+        "First name": "Caroline"
+      }
+    }
+  ]
+}`;
+
+//xhr.send(add_to_cart_data);
+
+**/
+
+function asd(){
+  $('.google-sheet-output tr').each(function(i,v){
+  var trr = $(this);
+      var g_qty = trr.find("td:eq(8)").text();
+      //console.log(tdd);
+let jss = {
+      "quantity": 1,
+      "id": "42293780185245",
+	"title": trr.find("td:eq(2)").text(),
+      "properties": {
+        "Wheel Model": trr.find("td:eq(2)").text(),
+		"PN": trr.find("td:eq(1)").text(),
+		"Bolt Pattern": trr.find("td:eq(3)").text(),
+		"Diameter": trr.find("td:eq(4)").text(),
+		"Width": trr.find("td:eq(5)").text(),
+		"Offset": trr.find("td:eq(6)").text(),
+		"Color": trr.find("td:eq(7)").text()
+      }
+    };
+jss = JSON.stringify(jss);
+
+//var xArr = [];
+//xArr.push(xObj);
+
+let add_to_cart_data = {
+"items": [
+    {
+      "quantity": 1,
+      "id": "42293780185245",
+"title":"My Custom Title",
+      "properties": {
+        "Wheel Model": trr.find("td:eq(2)").text(),
+		"PN": trr.find("td:eq(1)").text(),
+		"Bolt Pattern": trr.find("td:eq(3)").text(),
+		"Diameter": trr.find("td:eq(4)").text(),
+		"Width": trr.find("td:eq(5)").text(),
+		"Offset": trr.find("td:eq(6)").text(),
+		"Color": trr.find("td:eq(7)").text()
+      }
+    }
+  ]
+};
+
+
+
+
+//console.log(add_to_cart_data);
+
+trr.find("button").attr('data-json', JSON.stringify(add_to_cart_data) );
+
+  if( g_qty <= 0 ){
+      trr.find("button").remove();    
+  }
+
+  });
+}
+
+               const cartNavItem           = document.querySelector('#cart-nav-item');
+$(document).on("click",".addtocartjs",function(){
+	var thisAddtoCart = $(this);
+    var jsonD = thisAddtoCart.attr('data-json');
+	//console.log(jsonD);
+               
+               
+               
+$.ajax({
+  type: "POST",
+  url: "/cart/add.js",
+  data: $.parseJSON(jsonD),
+  success: function (result) {
+     console.log(result);
+               console.log('jaskdaskj');
+               
+               console.log(result.items[0].product_title);
+               console.log(result.items[0].properties);
+               console.log(result.items[0].properties["Wheel Model"]);
+               
+               
+     const toastEl = document.querySelector('#toast');
+
+                // Product was successfully added to cart
+                if (result.items.length > 0) {
+                    
+                    // Build toast
+                    toastEl.querySelector('.toast-header strong').innerHTML = `
+                        ${window.theme.i18n.product.added_to_cart}
+                    `;
+
+                    toastEl.querySelector('.toast-body').innerHTML = `
+                        <div class="d-flex align-items-center mb-0">
+                            <img 
+                                class="me-2 ${toastEl.dataset.imgThumbnail ? 'img-thumbnail' : 'rounded'}" 
+                                src="https://cdn.shopify.com/s/files/1/0586/8470/2877/products/ImolaMonoC_8d5297eb-0229-40d9-8781-efabe49060d1_360x360_crop_center.png" 
+                                alt="${result.items[0].product_title || ''}" 
+                                width="${toastEl.dataset.imgWidth}" 
+                                height="${toastEl.dataset.imgHeight}" 
+                                style="object-fit: cover">
+                            <div>
+                                <h4 class="h6 mb-1">
+                                    ${result.items[0].product_title}
+                                </h4>
+                                <span class="mt-n1 mb-0 text-muted ${result.items[0].product_title == 'Default Title' ? 'd-none' : 'd-block'}">
+                                    ${result.items[0].properties["Wheel Model"]} <br> ${result.items[0].properties["PN"]}
+                                </span>
+                                <p class="product-price text-muted mb-0">
+                                    ${result.items[0].quantity || 1} x
+                                    <span class="price">
+                                        ${Shopify.formatMoney(result.items[0].discounted_price)}   
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    `;
+
+                    toastEl.querySelector('.toast-footer').innerHTML = `
+                        <a 
+                            href="/cart" 
+                            class="btn w-100 ${toastEl.dataset.btnColor} ${toastEl.dataset.btnSize}">
+                            ${window.theme.i18n.product.view_cart}
+                        </a>
+                    `;
+
+                    // Update cart on navbar
+                    fetch(window.location)
+                        .then(res => res.text())
+                        .then(data => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(data, 'text/html');
+
+                            cartNavItem.innerHTML = doc.querySelector(`#${cartNavItem.id}`).innerHTML;
+                        });
+
+                }
+
+                // Error adding product to cart
+                else {
+                    const status = 400;
+                    const message = "Error Occurred while adding to Cart!";
+                    const description = "Please refresh the page";
+
+                    // Build toast
+                    toastEl.querySelector('.toast-header strong').innerHTML = `
+                        ${message} (Status: ${status})
+                    `;
+
+                    toastEl.querySelector('.toast-body').innerHTML = `
+                        <p class="mb-0">
+                            ${description ?? ''}
+                        </p>
+                    `;
+
+                    toastEl.querySelector('.toast-footer').innerHTML = `
+                        <a 
+                            href="/cart" 
+                            class="btn w-100 ${toastEl.dataset.btnColor} ${toastEl.dataset.btnSize}">
+                            ${window.theme.i18n.product.view_cart}
+                        </a>
+                    `;
+
+                    toastEl.querySelector('.toast-header strong').classList.add('text-danger');
+                }
+
+                // Display toast to the visitor
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();          
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+  },
+  dataType: "json"
+});
+               
+
+});
+
+
+
+
+
+{% endjavascript %}

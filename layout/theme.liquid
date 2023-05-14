@@ -1,0 +1,198 @@
+<!doctype html>
+<html 
+    class="no-js no-touch" 
+    lang="{{ shop.locale }}">
+    <head>
+
+        {% render 'seo-title' %}
+
+        <meta charset="utf-8">
+        <meta 
+            http-equiv="X-UA-Compatible" 
+            content="IE=edge, chrome=1">
+        {% if page_description %}
+            <meta 
+                name="description" 
+                content="{{ page_description | escape }}">
+        {% endif %}
+        <meta 
+            name="viewport" 
+            content="width=device-width, initial-scale=1">
+        <meta 
+            name="theme-color" 
+            content="{{ settings.color_primary }}">
+
+        <link 
+            rel="canonical" 
+            href="{{ canonical_url }}">
+        
+        {% if settings.favicon != blank %}
+            <link 
+                rel="shortcut icon" 
+                href="{{ settings.favicon | img_url: '32x32' }}" 
+                type="image/png">
+        {% endif %}
+        
+        {{ content_for_header }}{% if product %}<script id="hc_product_countdown_dates" data-p_id="{{ product.id }}" type="application/json">{{ shop.metafields.hc_product_countdown.dates_json }}</script>{% endif %}<script src="{{ 'hc_sdm_script.js' | asset_url }}" defer="defer"></script> 
+
+        <!-- Styles -->
+        <link 
+            href="{{ 'variables.css' | asset_url }}" 
+            rel="stylesheet">
+        <link 
+            href="{{ 'theme.min.css' | asset_url }}" 
+            rel="stylesheet">
+        <link 
+            href="{{ 'custom.css' | asset_url }}" 
+            rel="stylesheet">
+
+         <!-- Scripts -->
+        <script 
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" 
+            crossorigin="anonymous"
+            defer>
+        </script>
+        <script 
+            src="{{ 'theme.min.js' | asset_url }}" 
+            defer>
+        </script>
+        <script 
+            src="{{ 'custom.js' | asset_url }}" 
+            defer>
+        </script>
+        <script>
+            Shopify.money_format = "{{ shop.money_format }}";
+
+            window.theme = {
+                i18n: {
+                    general: {
+                        loading: "{{ 'general.loading' | t }}",
+                    },
+                    product: {
+                        add_to_cart: "{{ 'product.add_to_cart' | t }}",
+                        added_to_cart: "{{ 'product.added_to_cart' | t }}",
+                        old_price: "{{ 'product.old_price' | t }}",
+                        sold_out: "{{ 'product.sold_out' | t }}",
+                        unavailable: "{{ 'product.unavailable' | t }}",
+                        view_cart: "{{ 'product.view_cart' | t }}",
+                    }
+                }
+            }
+        </script>
+<style>
+
+  
+ 
+
+
+</style>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="template-{{ request.page_type }}">
+
+        <a
+            id="skip-to-content-link"
+            class="visually-hidden-focusable" 
+            href="#main">
+            {{ 'general.accessibility.skip_to_content' | t }}
+        </a>
+        
+        {% section 'announcement-bar' %}
+      <header>  
+      {% section 'navbar' %}
+        
+        <!-- https://blog.avada.io/shopify/devdocs/how-to-comment-out-liquid-code-in-shopify.html -->
+        
+        
+        {% comment %}  
+        {% unless template == 'index' or template == 'cart' or template == 'list-collections' %} {% endunless %}
+        {% endcomment %}
+       
+        {% if template contains 'collection' %}
+        	<div class="page_title"><span>Robust Ecommerce Store</span></div>
+        {% elsif template contains 'page' %}
+        	<div class="page_title"><span>{{ page.title }}</span></div>
+        {% endif %}
+        
+        {% unless template == 'index' or template == 'list-collections' %}
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  <a href="/" title="Home">Home</a>
+  
+  
+  {% if template contains 'page' %}
+    <span aria-hidden="true">/</span>
+    <span>{{ page.title }}</span>
+  
+  
+  {% elsif template contains 'product' %}
+    {% if collection.url %}
+      <span class="icon" aria-hidden="true">/</span>
+      <!-- {{ collection.title | link_to: collection.url }} --> Robust Ecommerce Store
+    {% endif %}
+    <span class="icon" aria-hidden="true">/</span>
+    <span>{{ product.title }}</span>
+  
+  
+  {% elsif template contains 'collection' and collection.handle %}
+    <span class="icon" aria-hidden="true">/</span>
+    {% if current_tags %}
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+       {{ collection.title | link_to: url }}
+      <span class="icon" aria-hidden="true">/</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+      <span>{{ collection.title }}</span>
+    {% endif %}
+  
+  
+  
+  {% elsif template == 'blog' %}
+    <span class="icon" aria-hidden="true">/</span>
+    {% if current_tags %}
+      {{ blog.title | link_to: blog.url }}
+      <span class="icon" aria-hidden="true">/</span>
+      <span>{{ current_tags | join: " + " }}</span>
+    {% else %}
+    <span>{{ blog.title }}</span>
+    {% endif %}
+  
+  
+  
+  {% elsif template == 'article' %}
+    <span class="icon" aria-hidden="true">/</span>
+    {{ blog.title | link_to: blog.url }}
+    <span class="icon" aria-hidden="true">/</span>
+    <span>{{ article.title }}</span>
+  {% else %}
+   <span class="icon" aria-hidden="true">/</span>
+   <span>{{ page_title }}</span>
+  
+  {% endif %}
+  
+  
+</nav>
+{% endunless %}
+        
+        
+        
+        
+</header>
+        <main 
+            id="main"
+            class="{% if request.page_type != 'index' %}py-7{% endif %}"
+            role="main">
+            {{ content_for_layout }}
+        </main>
+
+        {% section 'footer-logo-list' %}
+      	{% section 'footer-blocks' %}
+      	{% section 'footer-blocks-bottom' %}
+        {% section 'footer' %}
+
+        {% render 'toast' %}
+    
+{% include 'swymSnippet' %}
+
+</body>
+</html>

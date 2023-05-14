@@ -1,0 +1,416 @@
+{% capture max_width %}
+    {% unless section.settings.max_width == blank %}
+        {{ section.settings.max_width | prepend: 'max-width: ' | append: 'px;' }}
+    {% endunless %}
+{% endcapture %}
+
+<article class="">
+
+    <div 
+        class="container-fluid mx-auto">
+
+        <!-- Header -->
+        <div class="heading-wrapper mb-0 overflow-hidden text-center">
+
+            <!-- Heading -->
+            
+          <!--
+          <h3 class="mb-5 heading {{ section.settings.heading_size }}">
+                {{ page.title }}
+            </h3>
+          <img class="my-5" src="https://cdn.shopify.com/s/files/1/0586/8470/2877/files/wheel-tool.png" alt="wheel-tool" style="pointer-events:none;" />-->
+          {% render 'wheel-tool' %}
+          
+        </div>
+      
+      
+      
+
+        <div 
+        class="container mx-auto"
+        style="{{ max_width }}">
+          
+          <div class="heading-wrapper mb-0 overflow-hidden text-center">
+
+            <!-- Heading -->
+            <h3 class="mt-5 heading {{ section.settings.heading_size }}">
+                Ready For Your Set?
+            </h3>
+            <p>Fill out this form for a quote on your wheels!</p>
+            <p>Looking for our MONOC Cast wheels? Please visit the shop link here: MonoC</p>
+            <p>MSRP: 15/16: $2999 - 17/18/19: $3399 - 20/21: $3599 - 22/24:$3999</p>
+            <h3 class="mt-5 heading {{ section.settings.heading_size }}">
+                Contact Information
+            </h3>
+          </div>
+
+        <!-- Contact form -->
+        {% form 'contact', class: 'contact-form mb-8' %}
+
+            <!-- Form success -->
+            {% if form.posted_successfully? %}
+                <p class="form-success alert alert-success mb-4" role="alert">
+                    {{ 'general.contact.post_success' | t }}
+                </p>
+            {% endif %}
+
+            <!-- Form errors -->
+            {{ form.errors | default_errors }}
+
+            <!-- Form fields -->
+            <div class="row g-3 mb-3">
+                <div class="form-group col-md-6">
+                    <input 
+                        class="form-control" 
+                        type="text" 
+                        name="contact[first_name]" 
+                        id="ContactFormfirst_name" 
+                        value=""  
+                        placeholder="First Name" 
+                        required>
+                </div>
+                <div class="form-group col-md-6">
+                      <input 
+                          class="form-control" 
+                          type="text" 
+                          name="contact[last_name]" 
+                          id="ContactFormlast_name" 
+                          value=""  
+                          placeholder="Last Name" 
+                          required>
+                  </div>
+              <div class="form-group col-md-6">
+                    <input 
+                        class="form-control" 
+                        type="email" 
+                        name="contact[email]" 
+                        id="ContactFormEmail" 
+                        value="" 
+                        placeholder="Email Address" 
+                        spellcheck="false" 
+                        autocomplete="off" 
+                        autocapitalize="off" 
+                        required>
+                </div> 
+              <div class="form-group col-md-6">
+                    <input 
+                           class="form-control" 
+                           type="tel" 
+                           name="contact[phone]" 
+                           id="ContactFormphone" 
+                           value=""  
+                           placeholder="Phone Number" 
+                           required>
+                  </div>    
+              <div class="form-group col-md-6">
+                    <input 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[ship_add]" 
+                           id="ContactForm_ship_add" 
+                           value=""  
+                           placeholder="Shipping Address" 
+                           required>
+                  </div>
+              <div class="form-group col-md-6">
+                    <input 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[city]" 
+                           id="ContactForm_city" 
+                           value=""  
+                           placeholder="City" 
+                           required>
+                  </div>
+              <div class="form-group col-md-6">
+                    <input 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[state]" 
+                           id="ContactForm_state" 
+                           value=""  
+                           placeholder="State/Province" 
+                           required>
+                  </div>
+              <div class="form-group col-md-6">
+                    <input 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[postal_code]" 
+                           id="ContactForm_postal_code" 
+                           value=""  
+                           placeholder="Zip/Postal Code" 
+                           required>
+                  </div>
+              <div class="form-group col-md-12">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[country]" 
+                           id="ContactForm_country"  
+                            required><option>Country</option></select>
+                  </div>
+              <div class="form-group col-md-12">
+                    <input 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[vehicle_info]" 
+                           id="ContactForm_vehicle_info" 
+                           value=""  
+                           placeholder="Vehicle Info" 
+                           required>
+                  </div>
+              <div class="form-group col-md-12">
+                    <input 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[year_model]" 
+                           id="ContactForm_year_model" 
+                           value=""  
+                           placeholder="Year/Make/Model is your vehicle..." 
+                           required>
+                  </div>
+              <div class="form-group col-md-12">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[brake_type]" 
+                           id="ContactForm_brake_type"  
+                              required>
+                      <option>What Kind of Brakes do you have on your vehicle</option>
+                      <option>ABS</option>
+                      <option>Traditional</option>
+                </select>
+                  </div>
+              <div class="heading-wrapper mb-0 overflow-hidden text-center">
+
+            <!-- Heading -->
+            <h3 class="my-5 heading {{ section.settings.heading_size }}">
+                Vehicle Information
+            </h3>
+              </div>
+              
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_model]" 
+                           id="ContactForm_wheel_model"  
+                              required><option>What wheel model are you interested in</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_construction]" 
+                           id="ContactForm_wheel_construction"  
+                              required><option>What Construction do you want for your wheels</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_directional]" 
+                           id="ContactForm_wheel_directional"  
+                              required><option>Do you want your wheels to be Directional</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_hardware]" 
+                           id="ContactForm_wheel_hardware"  
+                              required><option>Do you want your hardware to be Exposed or.. </option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_lip]" 
+                           id="ContactForm_wheel_lip"  
+                              required><option>Do you want a step or flat lip</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_diameter]" 
+                           id="ContactForm_wheel_diameter"  
+                              required><option>Diameter do you want your front wheels to..</option></select>
+                  </div>
+              <div class="form-group col-md-12">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_width]" 
+                           id="ContactForm_wheel_width"  
+                              required><option>Width do you want your front wheels to be</option></select>
+                  </div>
+              
+              
+              <div class="form-group col-md-12">
+                    <input 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_offset]" 
+                           id="wheel_offset" 
+                           value=""  
+                           placeholder="Offset do you want your front wheels to be" 
+                           required>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_rare_diameter]" 
+                           id="wheel_rare_diameter"  
+                              required><option>Diameter do you want your rear wheels to be</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_rare_width]" 
+                           id="ContactForm_wheel_rare_width"  
+                              required><option>Width do you want your rear wheels to be</option></select>
+                  </div>
+              
+              <div class="form-group col-md-12">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_rare_offest]" 
+                           id="ContactForm_wheel_rare_offset"  
+                              required><option>Offset do you want your rear wheels to be</option></select>
+                  </div>
+              
+              <div class="heading-wrapper mb-0 overflow-hidden text-center">
+
+            <!-- Heading -->
+            <h3 class="my-5 heading {{ section.settings.heading_size }}">
+                Wheel Finishes
+            </h3>
+              </div>
+              
+              
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_center]" 
+                           id="wheel_finish_center"  
+                              required><option>Finish do you want for the wheel centers</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_center_powdercoat]" 
+                           id="wheel_finish_center_powdercoat"  
+                              required><option>Center Powdercoat Color</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_lip]" 
+                           id="wheel_finish_lip"  
+                              required><option>Finish do you want for the wheel lips</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_center_powdercoat_lip]" 
+                           id="wheel_finish_center_powdercoat_lip"  
+                              required><option>Lip Powdercoat Color</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_inner_barrel]" 
+                           id="wheel_finish_inner_barrel"  
+                              required><option>Finish do you want for the inner barrels</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_barrel_powdercoat]" 
+                           id="wheel_finish_barrel_powdercoat"  
+                              required><option>Barrel Powdercoat Color</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_hardware]" 
+                           id="wheel_finish_hardware"  
+                              required><option>Finish do you want for the hardware</option></select>
+                  </div>
+              <div class="form-group col-md-6">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_center_cap]" 
+                           id="wheel_finish_center_cap"  
+                              required><option>Finish do you want for the center cap</option></select>
+                  </div>
+              <div class="form-group col-md-12">
+                    <select 
+                           class="form-control" 
+                           type="text" 
+                           name="contact[wheel_finish_other]" 
+                           id="wheel_finish_other"  
+                              required><option>Anything Else?</option></select>
+                  </div>
+             
+            <!-- Submit btn -->
+            <input 
+                type="submit" 
+                class="btn btn-primary" 
+                value="Submit Now">
+        {% endform %}
+
+    </div>
+</article>
+
+{% schema %}
+{
+    "name": "Wheel Configurator - page",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General settings"
+        },
+        {
+            "type": "text",
+            "id": "max_width",
+            "label": "Content max-width (px)",
+            "info": "Adjust post content width (in pixels). Leave empty to use the container.",
+            "default": "1082"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "label": "Heading size",
+            "default": "display-5",
+            "options": [
+                { "group": "Display", "value": "display-1", "label": "Display 1" },
+                { "group": "Display", "value": "display-2", "label": "Display 2" },
+                { "group": "Display", "value": "display-3", "label": "Display 3" },
+                { "group": "Display", "value": "display-4", "label": "Display 4" },
+                { "group": "Display", "value": "display-5", "label": "Display 5" },
+                { "group": "Display",  "value": "display-6", "label": "Display 6" },
+                { "group": "Heading", "value": "h1", "label": "H1" },
+                { "group": "Heading", "value": "h2", "label": "H2" },
+                { "group": "Heading", "value": "h3", "label": "H3" },
+                { "group": "Heading", "value": "h4", "label": "H4" },
+                { "group": "Heading", "value": "h5", "label": "H5" },
+                { "group": "Heading", "value": "h6", "label": "H6" }
+            ]
+        }
+    ]
+}
+{% endschema %}

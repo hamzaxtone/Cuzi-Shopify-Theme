@@ -1,0 +1,857 @@
+{% assign pageurl = content_for_header | split:'"pageurl":"' | last | split:'"' | first %}
+
+{% if pageurl contains 'layout-grid' %}
+    {% assign layout = 'grid' %}
+{% elsif pageurl contains 'layout-list' %}
+    {% assign layout = 'list' %}
+{% else %}
+    {% assign layout = section.settings.layout %}        
+{% endif %}
+
+<div
+    id="collection-{{ collection.id }}"
+    class="collection">
+
+    <!-- Collection image -->
+    {% if section.settings.show_collection_img and collection.image %}
+        {% assign collection_img_800_size = section.settings.collection_img_height | prepend: '800x' %}
+        {% assign collection_img_1600_size = section.settings.collection_img_height | prepend: '1600x' %}
+        <img 
+            class="collection-img w-100 h-auto object-fit-cover mt-n7 mb-6"
+            src="{{ collection.image | img_url: collection_img_1600_size, crop: 'center' }}"
+            srcset="
+                {{ collection.image | img_url: collection_img_800_size, crop: 'center' }} 800w, 
+                {{ collection.image | img_url: collection_img_1600_size, crop: 'center' }} 1600w
+            "
+            alt="{{ collection.image.alt | escape }}" 
+            width="1600"
+            height="{{section.settings.collection_img_height }}"
+            style="{{section.settings.collection_img_height | prepend: 'max-height: ' | append: 'px' }};">
+    {% endif %}
+
+    <!-- Collection header -->
+    <!-- <div
+        class="heading-wrapper container overflow-hidden text-center mx-auto mb-3" 
+        style="max-width: 768px">
+
+        <h1 class="heading mb-1 {{ section.settings.heading_size }}">
+            {{ collection.title }}
+        </h1>
+
+        {% if section.settings.show_collection_description and collection.description != blank %}
+            <div class="description rte text-muted {{ section.settings.description_size }}">
+                {{ collection.description }}
+            </div>
+        {% endif %}
+
+    </div> -->
+
+    <div class="{% if section.settings.container %}container{% else %}container-fluid{% endif %}">
+      <div class="row">
+        
+        
+        
+        <div class="col-md-3">
+          <div class="filter-collection">
+            <div class="collection-list">
+              <h3 class="title-heading">Product Categories</h3>
+              <ul>{% for collection in collections %}
+                <li>{{ collection.title | link_to: collection.url }}</li>
+                  {% endfor %}
+              </ul>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+{% liquid
+  assign sort_by = collection.sort_by | default: collection.default_sort_by
+  assign blocks = section.blocks | where: 'type', 'sidebar'
+  assign block = blocks[0]
+  assign style_color = 'Color'
+  assign style_size = 'Size'
+  paginate collection.products by 1000
+    assign size_item = paginate.items
+  endpaginate
+%}
+  
+
+  
+  <div class="sidebar" id="main-collection-filters" data-id="{{ section.id }}">
+    
+    {%- assign total_active_values = 0 -%}
+    <collection-filters-form class="facets small-hide">
+      <form id="CollectionFiltersForm" class="facets__form">
+<!--           <a href="javascript:void(0)" title="{{ 'cart.general.close_cart' | t }}" class="close-sidebar close">
+              X 
+          </a> -->
+          
+          <div class="sidebar-filter" data-has-collapse>
+            {% if settings.category_layout == "right_sidebar" or settings.category_layout == "express_order" or template.suffix == 'express-order' or settings.category_layout == "mansory" or template.suffix == 'mansory' or settings.category_layout == "full_with" or template.suffix == 'fullwidth' or template.suffix == 'right-sidebar' or settings.category_layout == "with_banner" or template.suffix == 'with-banner' %}
+              <a href="javascript:void(0)" title="{{ 'cart.general.close_cart' | t }}" class="close-sidebar close">
+                {% render 'icon-close' %}    
+              </a>
+            {% endif %}
+
+                <div class="refined-widgets js-filter mt-5" data-index="0">
+                    {% liquid
+                      for filter in collection.filters
+                        assign total_active_values = total_active_values | plus: filter.active_values.size
+                        if filter.min_value.value != blank or filter.max_value.value != blank
+                          if filter.min_value.value > 0 or filter.max_value.value < filter.range_max
+                            assign total_active_values = 1
+                            break
+                          endif
+                        endif
+                      endfor
+                    %}
+                    {% if total_active_values > 0 %}
+                      <div id="page_size">
+                        {{ size_item }} result
+                      </div>
+                      <div class="widget-title">
+                          <h3 class="title-heading">
+                              <span>
+                                  Refine By          
+                              </span>
+                              <a href="{{ collection.url }}?sort_by={{ sort_by }}" class="clear-all text-hover active-facets__button button button--secondary js-facet-remove" {% if total_active_values == 0 %}style="display:none"{% endif %}>
+                                  Clear All
+                              </a>
+                          </h3>
+                      </div>
+                      <div class="widget-content {{ total_active_values }}">
+                          <ul class="refined">
+                              {%- for filter in collection.filters -%}
+                                {%- for value in filter.active_values -%}
+                                <li>
+                                  <a class="active-facets__button active-facets__button--light button button--tertiary js-facet-remove" href="{{ value.url_to_remove }}">
+                                      {{ value.label | escape }}
+                                      <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 48 48" width="144px" height="144px"><path d="M 38.982422 6.9707031 A 2.0002 2.0002 0 0 0 37.585938 7.5859375 L 24 21.171875 L 10.414062 7.5859375 A 2.0002 2.0002 0 0 0 8.9785156 6.9804688 A 2.0002 2.0002 0 0 0 7.5859375 10.414062 L 21.171875 24 L 7.5859375 37.585938 A 2.0002 2.0002 0 1 0 10.414062 40.414062 L 24 26.828125 L 37.585938 40.414062 A 2.0002 2.0002 0 1 0 40.414062 37.585938 L 26.828125 24 L 40.414062 10.414062 A 2.0002 2.0002 0 0 0 38.982422 6.9707031 z"/></svg>
+                                  </a>
+                                </li>
+                                {%- endfor -%}
+
+                                {% if filter.type == "price_range" %}
+
+                                  {% if filter.min_value.value > 0 or filter.max_value.value < filter.range_max %}
+                                    {%- if filter.min_value.value != nil and filter.max_value.value != nil -%}
+                                    <li class="{{filter.max_value.value}}-{{filter.range_max}}">
+                                      <a class="active-facets__button active-facets__button--light button button--tertiary js-facet-remove" href="{{ filter.url_to_remove }}">
+                                          {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                                          <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 48 48" width="144px" height="144px"><path d="M 38.982422 6.9707031 A 2.0002 2.0002 0 0 0 37.585938 7.5859375 L 24 21.171875 L 10.414062 7.5859375 A 2.0002 2.0002 0 0 0 8.9785156 6.9804688 A 2.0002 2.0002 0 0 0 7.5859375 10.414062 L 21.171875 24 L 7.5859375 37.585938 A 2.0002 2.0002 0 1 0 10.414062 40.414062 L 24 26.828125 L 37.585938 40.414062 A 2.0002 2.0002 0 1 0 40.414062 37.585938 L 26.828125 24 L 40.414062 10.414062 A 2.0002 2.0002 0 0 0 38.982422 6.9707031 z"/></svg>
+                                      </a>
+                                    </li>
+                                    {%- endif -%}
+                                  {%- endif -%}
+
+                                {% endif %}
+                              {%- endfor -%}
+                          </ul>
+                      </div>
+                    {% endif %}           
+                </div>
+
+                {% if collection.current_vendor or collection.current_type %}
+                  <input type="hidden" name="q" value="{{ collection.current_vendor }}{{ collection.current_type }}">
+                {% endif %}
+            
+            
+            
+                {%- for filter in collection.filters -%}
+            
+            
+           
+                  {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
+            
+                  {% case filter.type %}
+                  {% when 'list' %}
+            
+            
+            
+                    <div class="mt-5 js-filter widget sidebar-tags {% if style_color contains filter.label %}filter-color{% endif %} {% if style_size contains filter.label %}filter-size{% endif %}" data-index="{{ forloop.index }}">
+                      <div class="widget-title {% if block.settings.number_collapse < forloop.index %}open{% endif %}">
+                          <h3 class="title-heading">
+                              <span>{{ filter.label | escape }}</span>
+                          </h3>
+                      </div>
+                      <div class="widget-content" {% if block.settings.number_collapse < forloop.index %}style="display: none"{% endif %}>
+                          <ul class="list-tags">
+                              {%- for value in filter.values -%}
+                                {% assign tag = value.value | strip %}
+                                {% assign tag_value = tag | handleize %} 
+                                <li class="white list-menu__item facets__item" {% if forloop.index > 10 %}style="display: none"{% endif %}>
+                                  <input type="checkbox"
+                                    name="{{ value.param_name }}"
+                                    value="{{ value.value }}"
+                                    id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                                    {% if value.active %}checked{% endif %}
+                                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                                  >
+                                  {% if style_color contains filter.label %}
+                                    <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %} {% if value.count == 0 and value.active %}active{% endif %}" title="{{tag}}"
+                                    style="abackground-color: {{ tag_value }}; {% if settings.show_product_color_img %}background-image: url({{ tag_value | handle | append: '.png' | file_url }}){% endif %}">
+                                  {{tag}}  
+                                  </label>
+                                  {% else %}
+                                    <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                                      {{ value.label | escape }} <span class="count_value">( {{ value.count }} )</span>
+                                    </label>
+                                  {% endif %}
+                                </li>
+                                
+                                {% if forloop.index == 10 %}
+                                  <li class="show-more--list_tags">
+                                    <span class="icon">
+                                      <svg id="Solid" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m192 424a23.928 23.928 0 0 1 -16.971-7.029l-144-144a24 24 0 0 1 0-33.942l144-144a24 24 0 0 1 33.942 33.942l-127.03 127.029 127.03 127.029a24 24 0 0 1 -16.971 40.971zm144.971-7.029 144-144a24 24 0 0 0 0-33.942l-144-144a24 24 0 0 0 -33.942 33.942l127.03 127.029-127.03 127.029a24 24 0 0 0 33.942 33.942z"/></svg>
+                                    </span>
+                                    {{ 'general.sidebar.more' | t }} {{ filter.label | escape }}s
+                                  </li>
+                                {% endif %}
+                               
+                              {% endfor %}
+
+                              {%- for option in collection.sort_options -%}
+                                {% if option.value == sort_by %}
+                                  <input type="radio" id="{{ option.value }}" name="sort_by" value="{{ option.value }}" {% if option.value == sort_by %}checked{% endif %} style="display: none;">
+                                {% endif %}
+                              {% endfor %}
+
+                          </ul>
+                      </div>
+                    </div>
+                  {% when 'price_range' %}
+                    {% liquid
+                      assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                      assign uses_comma_decimals = false
+                      if currencies_using_comma_decimals contains cart.currency.iso_code
+                        assign uses_comma_decimals = true
+                      endif
+                    %}
+                    <div class="js-filter widget sidebar-tags" data-index="{{ forloop.index }}">
+                      <div class="widget-title {% if block.settings.number_collapse < forloop.index %}open{% endif %}">
+                          <h3 class="title-heading">
+                              <span>Filter By Price</span>
+                          </h3>
+                      </div>
+                      
+                      <div class="widget-content" {% if block.settings.number_collapse < forloop.index %}style="display: none"{% endif %}>
+                          <price-range class="facets__price">
+                            <div class="range_price--box">
+                              <div class="price-slider">
+                                <div class="box-slide">
+                                  <label>
+                                    <span class="field__currency">{{ cart.currency.symbol }}</span>
+                                    <input class="field__input filter__price filter__min"
+                                      name="{{ filter.min_value.param_name }}"
+                                      id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                                      {%- if filter.min_value.value -%}
+                                        {%- if uses_comma_decimals -%}
+                                          value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                        {%- else -%}
+                                          value="{{ filter.min_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' }}"
+                                        {% endif %}
+                                      {%- endif -%}
+                                      type="number"
+                                      value="0"
+                                      min="0"
+                                      max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' }}">
+                                    </input>
+                                  </label>
+                                  <span class="slide_price--to">to</span>
+                                  <label>
+                                    <span class="field__currency">{{ cart.currency.symbol }}</span>
+                                    <input class="field__input filter__price filter__max"
+                                      name="{{ filter.max_value.param_name }}"
+                                      id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                                      {%- if filter.max_value.value -%}
+                                        {%- if uses_comma_decimals -%}
+                                          value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                        {%- else -%}
+                                          value="{{ filter.max_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' }}"
+                                        {% endif %}
+                                      {%- endif -%}
+                                      type="number"
+                                      value="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' }}"
+                                      min="0"
+                                      max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' }}">
+                                    </input>
+                                  </label>
+                                </div>
+                                <label class="apply__button" for="apply__button--price">
+                                  <input class="apply__button--price" type="checkbox" id="apply__button--price" />
+                                  Filter
+                                </label>
+                                <input min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' }}" step="1" type="range" 
+                                {%- if filter.min_value.value -%}
+                                    {%- if uses_comma_decimals -%}
+                                      value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                    {%- else -%}
+                                      value="{{ filter.min_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' }}"
+                                    {% endif %}
+                                {%- else -%}
+                                    value="0"
+                                {%- endif -%} />
+                                <input min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' }}" step="1" type="range" 
+                                {%- if filter.max_value.value -%}
+                                    {%- if uses_comma_decimals -%}
+                                      value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' | replace: '.00', '' }}"
+                                    {%- else -%}
+                                      value="{{ filter.max_value.value | money_without_currency | replace: ',', '' | replace: '.00', '' }}"
+                                    {% endif %}
+                                {%- else -%}
+                                    value="{{ filter.range_max | money_without_currency | replace: ',', '' | replace: '.00', '' }}"
+                                {%- endif -%} />
+                              </div>
+                            </div>
+                          </price-range>
+                      </div>
+                    </div>
+                  {% endcase %}
+                {%- endfor -%}
+                <noscript>
+                  <button type="submit" class="facets__button button">{{ 'sections.collection_template.filter_button' | t }}</button>
+                </noscript>
+          </div>
+
+          
+
+          
+      </form>
+    </collection-filters-form>
+  </div>
+  <script src="{{ 'collection-filter-form.js' | asset_url }}" defer="defer"></script> 
+  
+        
+  <style> 
+      @media (max-width: 1199px) {  
+          {% unless settings.category_layout == "right_sidebar" or template.suffix == 'right-sidebar' %}
+          {% unless block.settings.display_sidebar %}
+          .halo-collection-content .sidebar-label {
+              display: none !important;
+          }
+          {% endunless %}
+          {% endunless %}
+      }
+    
+      @media (min-width: 1200px) { 
+          {% unless settings.category_layout == "full_with" or template.suffix == 'fullwidth' %}
+          {% if block.settings.display_sidebar or settings.category_layout == "right_sidebar" or template.suffix == 'right-sidebar' %}
+          .halo-collection-content .products-grid .col5 .sizes-list {
+              margin-bottom: 8px;
+          }
+
+          .halo-collection-content .products-grid .col5 .sizes-list li a {
+              min-width: 23px;
+              padding: 1px 5px 0px;
+              font-size: 10px;
+          }
+
+          {% if settings.style_product_grid == 'style_product_grid_2' %}
+              .halo-collection-content .products-grid .col5 .item-swatch label,
+              .halo-collection-content .products-grid .col5 .item-swatch a {
+                  width: 20px;
+                  height: 20px;
+                  line-height: 20px;
+              }
+          {% else %}
+              .halo-collection-content .products-grid .col5 .item-swatch label,
+              .halo-collection-content .products-grid .col5 .item-swatch a {
+                  width: 23px;
+                  height: 23px;
+                  line-height: 23px;
+              }
+          {% endif %}
+          
+          .halo-collection-content .products-grid .grid-item-mansory.col5 .countdown-grid-item>span {
+              display: none;
+          }
+          {% endif %}
+          {% endunless %}
+          
+          {% unless settings.category_layout == "right_sidebar" or template.suffix == 'right-sidebar' %}
+          {% unless block.settings.display_sidebar %}
+          .halo-collection-content .col-main {
+              width: 100%;
+              -webkit-box-flex: 0;
+              -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+              max-width: 100%;
+          }  
+          
+          {% else %}
+          
+          {% if block.settings.show_sidebar == 'right' %}
+          .halo-collection-content > .row {
+              -webkit-flex-direction: row-reverse;
+              -moz-flex-direction: row-reverse;
+              -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse;
+          }
+          {% endif %}
+          {% endunless %}
+          
+          {% else %}
+          .halo-collection-content > .row {
+              -webkit-flex-direction: row-reverse;
+              -moz-flex-direction: row-reverse;
+              -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse;
+          }
+          {% endunless %}
+      } 
+    
+    {% if block.settings.display_sidebar %}
+    {% if settings.category_layout == "full_with" or template.suffix == 'fullwidth' %}
+      @media (min-width: 1200px) and (max-width: 1449px) {
+          .halo-collection-content .products-grid .col5 .sizes-list {
+              margin-bottom: 8px;
+          }
+
+          .halo-collection-content .products-grid .col5 .sizes-list li a {
+              min-width: 23px;
+              padding: 1px 5px 0px;
+              font-size: 10px;
+          }
+
+          .halo-collection-content .products-grid .col5 .item-swatch label,
+          .halo-collection-content .products-grid .col5 .item-swatch a {
+              width: 23px;
+              height: 23px;
+              line-height: 23px;
+          }
+      }
+      
+      @media (min-width: 1350px) {
+          .collection-template-fullwidth .toolbar .column-left {
+              width: 49.5%;
+              padding-right: 30px;
+              padding-left: 30px;
+          }
+          
+          .collection-template-fullwidth .toolbar .filters-toolbar__view-as {
+              -webkit-box-pack: flex-end;
+              -moz-box-pack: flex-end;
+              -ms-flex-pack: flex-end;
+              -webkit-justify-content: flex-end;
+              justify-content: flex-end;
+          }
+      }
+    {% endif %}
+    {% endif %}
+  </style>
+
+
+
+            
+            
+       
+            
+            
+            
+          </div>
+        </div>
+        
+        <div class="col-md-9">
+        <!-- Collection Utitilies -->
+        {% if section.settings.enable_sorting or section.settings.enable_filtering %}
+            <div 
+                id="collection-utilities" 
+                class="d-flex flex-column flex-lg-row rounded mb-7 py-4 px-4 {% if section.settings.enable_filtering %}justify-content-between{% else %}justify-content-end{% endif %}">
+
+                <!-- Filtering -->
+                {% if section.settings.enable_filtering %}
+<!--                     <div
+                        id="collection-filtering" 
+                        class="input-group w-auto js mb-3 mb-lg-0">
+                        <label 
+                            class="input-group-text"
+                            for="collection-filtering-select">
+                            {{ 'collection.filter_by' | t }}
+                        </label>
+                        <select 
+                            id="collection-filtering-select" 
+                            class="form-select"
+                            style="min-width: 160px;">
+                            <option 
+                                value="{{ collection.url }}">
+                                {{ 'collection.all_products' | t }}
+                            </option>
+                            {% for tag in collection.all_tags %}
+                                <option 
+                                    value="{{ collection.url }}/{{ tag }}" 
+                                    {% if current_tags contains tag %}selected{% endif %}>
+                                    {{ tag }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div> -->
+                {% endif %}
+
+                <div 
+                    id="collection-utilities-right"
+                    class="d-flex align-items-center">
+                    
+                    <!-- Sorting -->
+                    {% if section.settings.enable_sorting %}
+<!--                         <div
+                            id="collection-sorting" 
+                            class="input-group js">
+                            <label
+                                class="input-group-text"
+                                for="collection-sorting-select">
+                                {{ 'collection.sort_by' | t }}
+                            </label>
+                            <select 
+                                id="collection-sorting-select" 
+                                class="form-select">
+                                {% for option in collection.sort_options %}
+                                    <option 
+                                        value="{{ option.value }}" 
+                                        {% if option.value == collection.sort_by %}selected{% endif %}>
+                                        {{ option.name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div> -->
+                    {% endif %}
+
+                    <!-- Layout Switcher -->
+                    {% if section.settings.show_layout_btn %}
+                  <div class="product-view-type">
+                        {% if layout == 'grid' %}
+                            <button
+                                id="collection-layout-btn-list"
+                                class="btn ms-3 "
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                data-value="layout-list"
+                                title="{{ 'collection.layout_list' | t }}"
+                                aria-hidden="true">
+                                {% render 'icon-list' with size: 22 %}
+                            </button>
+                  			<button
+                                id="collection-layout-btn-grid"
+                                class="btn ms-3 active"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" 
+                                data-value="layout-grid"
+                                title="{{ 'collection.layout_grid' | t }}"
+                                aria-hidden="true">
+                                {% render 'icon-grid' with size: 22 %}
+                            </button>
+                        {% else %}
+                  			<button
+                                id="collection-layout-btn-list"
+                                class="btn ms-3 active"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                data-value="layout-list"
+                                title="{{ 'collection.layout_list' | t }}"
+                                aria-hidden="true">
+                                {% render 'icon-list' with size: 22 %}
+                            </button>
+                            <button
+                                id="collection-layout-btn-grid"
+                                class="btn ms-3"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" 
+                                data-value="layout-grid"
+                                title="{{ 'collection.layout_grid' | t }}"
+                                aria-hidden="true">
+                                {% render 'icon-grid' with size: 22 %}
+                            </button>
+                  
+                        {% endif %}
+              </div>
+                    {% endif %}
+
+                </div>
+
+            </div>
+        {% endif %}
+
+        <!-- No products alert -->
+        {% if collection.products.size == 0 %}
+            <p class="collection-no-products-alert alert alert-warning">
+                {{ 'collection.no_products_html' | t: blog_url: blog.url }}
+            </p>
+        {% else %}
+
+            <!-- Items List/Grid -->
+            {% paginate collection.products by section.settings.paginate %}
+<div id="CollectionProductGrid">
+          <div id="main-collection-product-grid">
+            <div class="product-collection">
+                {% if layout == 'grid' %}
+                    {% render 'items-grid' with items: collection.products %}
+                {% elsif layout == 'list' %}
+                    {% render 'items-list' with items: collection.products %}
+                {% endif %}
+              </div>
+</div>
+   </div>       
+                {% render 'pagination' with paginate: paginate, layout: layout %}
+
+            {% endpaginate %}
+
+        {% endif %}
+</div>
+        </div>
+    </div>
+
+</div>
+
+{% schema %}
+{
+    "name": "Collection page",
+    "settings": [
+        {
+            "type": "header",
+            "content": "General settings"
+        },
+        {
+            "type": "select",
+            "id": "layout",
+            "label": "Layout",
+            "options": [
+                {  "value": "list", "label": "List" },
+                {  "value": "grid", "label": "Grid" }
+            ],
+            "default": "grid"
+        },
+        {
+            "type": "range",
+            "id": "paginate",
+            "label": "Products per page",
+            "min": 1,
+            "max": 50,
+            "default": 30
+        },
+        {
+            "type": "checkbox",
+            "id": "container",
+            "label": "Wrap in container",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_collection_img",
+            "label": "Show collection image",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "collection_img_height",
+            "label": "Collection image height (px)",
+            "default": "320"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "label": "Heading size",
+            "default": "display-5",
+            "options": [
+                { "group": "Display", "value": "display-1", "label": "Display 1" },
+                { "group": "Display", "value": "display-2", "label": "Display 2" },
+                { "group": "Display", "value": "display-3", "label": "Display 3" },
+                { "group": "Display", "value": "display-4", "label": "Display 4" },
+                { "group": "Display", "value": "display-5", "label": "Display 5" },
+                { "group": "Display",  "value": "display-6", "label": "Display 6" },
+                { "group": "Heading", "value": "h1", "label": "H1" },
+                { "group": "Heading", "value": "h2", "label": "H2" },
+                { "group": "Heading", "value": "h3", "label": "H3" },
+                { "group": "Heading", "value": "h4", "label": "H4" },
+                { "group": "Heading", "value": "h5", "label": "H5" },
+                { "group": "Heading", "value": "h6", "label": "H6" }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "show_collection_description",
+            "label": "Show description",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "description_size",
+            "label": "Description size",
+            "options": [
+                { "value": "", "label": "Normal" },
+                { "value": "lead", "label": "Large" }
+            ],
+            "default": ""
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_filtering",
+            "label": "Enable filtering",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_sorting",
+            "label": "Enable sorting",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_layout_btn",
+            "label": "Show layout switcher button",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Product settings"
+        },
+        {
+            "type": "text",
+            "id": "img_width",
+            "label": "Image width (px)",
+            "default": "480"
+        },
+        {
+            "type": "text",
+            "id": "img_height",
+            "label": "Image height (px)",
+            "default": "480"
+        },
+        {
+            "type": "checkbox",
+            "id": "img_thumbnail",
+            "label": "Image border",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_vendor",
+            "label": "Show vendor",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_description",
+            "label": "Show description",
+            "default": false
+        },
+        {
+            "type": "text",
+            "id": "description_length",
+            "label": "Description length",
+            "info": "Leave empty to show all text",
+            "default": "70"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_price",
+            "label": "Show price",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_badge_sold_out",
+            "label": "Show 'Sold out' badge",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_badge_sale",
+            "label": "Show 'Sale' badge",
+            "default": true
+        },
+        {
+            "type": "header",
+            "content": "Grid",
+            "info": "Adjust items per row.  Applies only if the setting 'Layout' above is selected to 'grid'. [Learn more](https://getbootstrap.com/docs/5.0/layout/grid/#auto-layout-columns)"
+        },
+        {
+            "type": "range",
+            "id": "row_",
+            "label": "X-Small <576px",
+            "min": 1,
+            "max": 3,
+            "step": 1,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "row_sm",
+            "label": "Small ≥576px",
+            "min": 1,
+            "max": 4,
+            "step": 1,
+            "default": 2
+        },
+        {
+            "type": "range",
+            "id": "row_md",
+            "label": "Medium ≥768px",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "row_lg",
+            "label": "Large ≥992px",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "row_xl",
+            "label": "Extra large ≥1200px",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "row_xxl",
+            "label": "Extra extra large ≥1400px",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "default": 6
+        },
+        {
+            "type": "header",
+            "content": "Gutter",
+            "info": "Spacing between items.  Applies only if the setting 'Layout' above is selected to 'grid'. [Learn more](https://getbootstrap.com/docs/5.0/layout/gutters/)"
+        },
+        {
+            "type": "range",
+            "id": "gutter_mobile",
+            "label": "Mobile <576px",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "gutter_tablet",
+            "label": "Tablet ≥576px",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "default": 3
+        },
+        {
+            "type": "range",
+            "id": "gutter_desktop",
+            "label": "Desktop ≥1200px",
+            "min": 1,
+            "max": 12,
+            "step": 1,
+            "default": 4
+        }
+    ]
+}
+{% endschema %}

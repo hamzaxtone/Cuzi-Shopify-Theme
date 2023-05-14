@@ -1,0 +1,327 @@
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+
+<script src="{{ 'html2canvas.min.js' | asset_url }}"></script>
+<script>
+  
+  
+  // Shortcut to document.querySelector (not jquery)
+
+// If formValues doesn't exist, add it
+if (!localStorage.formValues) localStorage.formValues = "[]";
+
+// Get formValues
+var formValues = JSON.parse(localStorage.formValues);
+
+
+$("#localstorageDIV").innerHTML = localStorage.formValues;
+  
+  if( localStorage.formValues ){
+  	getDesigns(localStorage.formValues);
+  }
+  
+  
+  function removeDesign(val,index){
+    var obj = JSON.parse(val);
+    
+    //console.log(obj);
+    
+  	obj.splice( index,1 );
+    
+   
+
+    
+    //console.log(obj);
+    
+    localStorage.formValues = JSON.stringify(obj);
+    
+    getDesigns(localStorage.formValues);
+    
+  }
+  
+  $(document).on('click','.designs li i',function(){
+  	var iii = $(this).attr('data-index');
+    removeDesign(localStorage.formValues,iii);
+  })
+  
+  function getDesigns(val){
+    	$('.designs').empty();
+    var obj = JSON.parse(val);
+    console.log(obj);
+    var i = 0;
+    obj.forEach(function(object) {
+  		$('.designs').append('<li data-index="'+i+'"><i class="fa fa-remove" data-index="'+i+'"></i><a href="'+object.src+'" download="my-wheel-design" target="_blank"><img src="'+object.src+'" /></a></li>');
+		i++;
+    });
+    
+      //
+    
+  	
+  }
+  
+  
+  
+  
+  
+  
+  
+  var urll = [];
+$(document).ready(function () {
+  
+  	
+  	//getDesign(keke+'-'+(keyCount++),keyCount++);
+  
+  
+  $("#download").click( function (e) {
+    
+    $(".download").trigger('click');
+/** html2canvas(document.querySelector('#tool-imgg'), {
+    onrendered: function(canvas) {
+        $('.canvass').append( canvas );
+        var dataURL = canvas.toDataURL();
+      	$("#download").attr("download", "your_image.png").attr("href", dataURL);
+      	$('.canvass canvas').remove();
+    }
+}); **/
+  
+
+    
+    
+ }); 
+  
+$("#downloadsassa").on('click', function () {              
+            var element = $("#tool-imgg"); // global variable
+            var getCanvas;
+            html2canvas(element, {
+                onrendered: function (canvas) {
+                    getCanvas = canvas;
+                }
+            });
+              
+              var imgageData = getCanvas.toDataURL("image/png");  
+              var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+              $('#preview').attr('src',imgageData);
+              $("#download").attr("download", "your_image.png").attr("href", newData);
+            
+});
+        });
+
+</script>
+<script>
+  
+  
+  
+  $('#reset').click(function(){
+  	//$("#tool-imgg").load(location.href + " #tool-imgg");\
+        location.reload();
+
+  });
+  
+  
+/**
+  function getBase64Image(img) {
+  var canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+  var ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0);
+  var dataURL = canvas.toDataURL("image/png");
+  return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+**/
+  const getBase64FromUrl = async (url) => {
+  const data = await fetch(url);
+  const blob = await data.blob();
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob); 
+    reader.onloadend = () => {
+      const base64data = reader.result;   
+      resolve(base64data);
+    }
+  });
+}
+  
+$('.tool-img.real img').each(function(){
+  	$('.dskd').addClass('loading');
+    var imgSRC = $(this).attr('src');
+  	//console.log(imgSRC);
+    var imgID = $(this).attr('id');
+    var imgg = $(this);
+    //getBase64Image(imgg);
+    
+  getBase64FromUrl(imgSRC).then(function(res){
+    $('#'+imgID).attr('src',res);
+    $('.dskd').removeClass('loading');
+    
+   });
+  	
+  });
+  
+  //$('.frame.dashboard').hide();
+  
+  setTimeout(function() { 
+  	//$('.frame.dashboard').show();
+  }, 5000);
+
+  
+function hexToRgb(color) {
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    color = color.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+    
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : {
+        r: 0,
+        g: 0,
+        b: 0
+    };
+}
+
+function colorImage(imgId,hexaColor) {
+  
+ 
+    // create hidden canvas (using image dimensions)
+    var imgElement = document.getElementById(imgId);
+  
+    var canvas = document.createElement("canvas");
+    canvas.width = imgElement.naturalWidth;
+    canvas.height = imgElement.naturalHeight;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(imgElement,0,0);
+    
+    var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    
+  //console.log(canvas.width);
+  
+  
+    var data = imageData.data;
+  
+    // convert image to grayscale
+    var rgbColor = hexToRgb(hexaColor);
+    //console.log(rgbColor);
+    
+    for(var p = 0, len = data.length; p < len; p+=4) {
+        //if(data[p+3] == 0)
+        //   continue;
+        data[p + 0] = rgbColor.r;
+        data[p + 1] = rgbColor.g;
+        data[p + 2] = rgbColor.b;
+        //data[p + 3] = 255;
+    }
+    ctx.putImageData(imageData, 0, 0);
+
+    // replace image source with canvas data
+    imgElement.src = canvas.toDataURL();
+    
+    
+}
+
+// changing color of capsule on select event
+
+
+$('.type-options .option').on("click", function(color) {
+      //console.log(this.value);
+  	$('.home-window').hide();
+	  $('.palette-window').addClass('visible');
+	  var typeID = $(this).data('id');
+	  var typeTitle = $(this).find('.label').text();
+	  var typeImg = $(this).find('img').attr('src');
+	  $('.selected-parts').attr('data-id',typeID);
+	  $('.selected-parts .label').text(typeTitle);
+	  $('.selected-parts .image-box img').attr('src',typeImg);
+      
+	  //var colorHex = this.value;
+      //colorImage('idd',colorHex);
+ });
+ $('#back-to-type').on("click", function() {
+	$('.palette-window').removeClass('visible');
+   $('.home-window').show();
+ });
+  
+  
+  
+  
+  
+  
+$('.colorsWheel .color').on("click", function(e) {
+  e.preventDefault();
+	var wheelID = $('.selected-parts').attr('data-id');
+	var colorHex = $(this).data('color');
+	//console.log(wheelID+" "+colorHex);
+	$('.type-options .option[data-id="'+wheelID+'"] .arrow-color polygon').css('fill',colorHex);
+	colorImage(wheelID,colorHex);
+  
+  
+ 	var scrollPos = 500;
+	scrollPos = document.documentElement.scrollTop;
+  //scrollPos = 500;
+  
+  console.log(scrollPos);
+  window.scrollTo(0,scrollPos);
+  
+
+html2canvas(document.querySelector('#tool-imgg'), {
+  scrollY:scrollPos,
+  scrollX: 0,
+    onrendered: function(canvas) {
+         
+
+      //setTimeout(function() { window.scrollTo(0,scrollPos); }, 36.5);
+      
+      window.scrollTo(0,scrollPos);
+        
+      var dataURL = "";
+      
+      $('.canvass').append( canvas );
+      window.scrollTo(0,scrollPos);
+        dataURL = canvas.toDataURL();
+      	$("#download").attr("download", "wheel-design.png").attr("href", dataURL);
+      	setTimeout(function() { 
+  			$('.canvass canvas').remove();
+          
+  		}, 1000);
+      
+      
+      $(document).on('click','#addToDesign' ,function (e) {
+  		urll = [dataURL];
+        var assa = dataURL;
+      	var keke = $('.key').val();
+        
+        formValues.push({
+        src: assa,
+        id: keke
+    });
+    
+    // Write to localStorage
+    localStorage.formValues = JSON.stringify(formValues);
+        
+        getDesigns(localStorage.formValues);
+        
+        
+        
+        
+  });
+      
+      
+      
+    }
+});
+  
+  
+  
+	
+});
+$('input[type="color"]').on("change", function(color) {
+      console.log(this.value);
+      var colorHex = this.value;
+   
+      colorImage('pinstripe',colorHex);
+ });
+
+</script>
