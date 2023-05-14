@@ -36,6 +36,19 @@
             {% for block in section.blocks %}
                 <div
                     class="carousel-item {% if forloop.first == true %}active{% endif %}">
+                    <div class="container">
+                          
+                    <div class="row">
+                        <div class="col-md-6">
+                        
+                        </div>  
+                        <div class="col-md-6">
+                        
+                        </div>  
+                    </div>    
+                    
+
+                    </div>
                     {% if block.settings.image != blank %}
                         {% assign img_size      = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
                         {% assign img_size_800  = 800 | divided_by: block.settings.image.aspect_ratio | round | prepend: '800x' %}
