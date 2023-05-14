@@ -7,13 +7,11 @@
     {% assign interval = false %}
 {% endif %}
 
-{% if section.settings.carousel_bg != blank %}
-    {% assign carouselBG = {{ section.settings.carousel_bg | img_url: '1600x' , crop: 'center' }} %}
-{% endif %}
+
 <div
     id="{{ 'carousel-wrapper' | append: section.id }}" 
     
-        style="background-image: url('{{ carouselBG }}');"
+        
     
     class="asd {% if section.settings.container %}container{% endif %} {{ mt }} {{ mb }} {% if section.settings.classes %}{{section.settings.classes}}{% endif %}">
 
@@ -133,11 +131,6 @@
         {
             "type": "header",
             "content": "General settings"
-        },
-        {
-            "type": "image_picker",
-            "id": "carousel_bg",
-            "label": "Carousel Background Image"
         },
         {
             "type": "checkbox",

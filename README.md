@@ -1,5 +1,5 @@
 # IMPORTANT NOTICE
-This branch (master) is for our new version of KS BootShop theme, which is powered by Bootstrap v5. If you are looking for our the Bootstrap v4 version please check our [v1 branch](https://github.com/Shopify/ks-bootshop/tree/v1-bs4)
+This branch (master) is for our new version of KS BootShop theme, which is powered by Bootstrap v5. If you are looking for our the Bootstrap v4 version please check our [v1 branch](https://github.com/hamzaxtone/Cuzi-Shopify-Theme)
 
 # BootShop - Shopify Theme
 Shopify Starter Theme powered by Bootstrap framework (v5 and v4), developed respecting [Shopify themes requirements](https://shopify.dev/tutorials/review-theme-store-requirements), accessibility best practices, and of course our own experience in developing themes for more than 15 years now.
