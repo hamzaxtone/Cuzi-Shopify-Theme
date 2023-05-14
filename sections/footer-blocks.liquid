@@ -122,7 +122,7 @@
                                 </ul>
                             </div>
                         {% endif %}
-                        {% if block.type == 'Newsletter' %}
+                        {% if block.type == 'newsletterType' %}
                           <!-- Newsletter form -->
                           {% form 'customer' %}
                               <input type="hidden" name="contact[tags]" value="newsletter">
@@ -261,7 +261,7 @@
         {
             "type": "range",
             "id": "row_",
-            "label": "X-Small <576px",
+            "label": "X-Small 576px",
             "min": 1,
             "max": 3,
             "step": 1,
@@ -320,7 +320,7 @@
         {
             "type": "range",
             "id": "gutter_mobile",
-            "label": "Mobile <576px",
+            "label": "Mobile 576px",
             "min": 1,
             "max": 6,
             "step": 1,
@@ -419,7 +419,7 @@
             ]
         },
         {
-            "type": "Newsletter",
+            "type": "newsletterType",
             "name": "Newsletter",
             "settings": [
                 {
