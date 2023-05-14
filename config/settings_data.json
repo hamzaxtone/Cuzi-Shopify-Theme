@@ -17,7 +17,7 @@
           "container": true,
           "bg_color": "rgba(0,0,0,0)",
           "background_style": "navbar-light",
-          "shadow": "shadow-sm",
+          "shadow": "shadow-none",
           "sticky": false,
           "logo": "shopify:\/\/shop_images\/Logo.svg",
           "logo_height": "77",
@@ -79,8 +79,8 @@
           "heading_alignment": "text-start",
           "subheading_size": "",
           "btn_color": "btn-outline-primary",
-          "padding_top": 10,
-          "padding_bottom": 10,
+          "padding_top": 0,
+          "padding_bottom": 0,
           "margin_top": 0,
           "margin_bottom": 0
         }
