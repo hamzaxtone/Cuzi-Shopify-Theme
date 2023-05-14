@@ -42,6 +42,7 @@
       "16129467980997b2cd": {
         "type": "image-with-text",
         "settings": {
+          "classes": "",
           "container": true,
           "light_bg": false,
           "img": "shopify:\/\/shop_images\/product2.png",
@@ -67,6 +68,7 @@
       "16131223138a584ff0": {
         "type": "newsletter",
         "settings": {
+          "classes": "",
           "heading": "There are many variations of Lorem available",
           "subheading": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud aliquip ex ea commodo consequat.<\/p>",
           "light_bg": false,
@@ -809,7 +811,8 @@
         "type": "full-section-image",
         "settings": {
           "Image": "shopify:\/\/shop_images\/text-image.svg",
-          "container": true,
+          "classes": "textImage-minus",
+          "container": false,
           "padding_top": 0,
           "padding_bottom": 0,
           "margin_top": 0,
