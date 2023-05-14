@@ -1589,9 +1589,10 @@
           "520b9bd2-606b-4e5c-931a-f42933a357ea-1684067058d28a911f-0": {
             "type": "image",
             "settings": {
-              "title": "First slide title",
+              "image": "shopify:\/\/shop_images\/cuzi-product.png",
+              "title": "healthy JUICE",
               "title_size": "h3",
-              "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/p>"
+              "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
             }
           }
         },
@@ -1610,7 +1611,7 @@
           "image_min_height": "360",
           "margin_top": 0,
           "margin_bottom": 7,
-          "classes": ""
+          "classes": "custom-carousel"
         }
       }
     },
