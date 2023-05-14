@@ -232,14 +232,27 @@
               "heading_size": "h5",
               "direction": "flex-column"
             }
+          },
+          "39c50463-6326-44ad-b203-d7c73bc1c863": {
+            "type": "newsletterType",
+            "settings": {
+              "heading": "Subscribe to our newsletter!",
+              "subHeading": "<p>Sign up for our mailing list to get the latest updates news & offers.<\/p>"
+            }
           }
         },
         "block_order": [
           "e00e2603-5c9c-4373-9917-00d8e58fb8f5",
           "84d98f57-a71d-49ea-a1a3-3fab0b59ff64",
-          "9f673a8b-4319-4dcd-aa1c-5a7fe8562e4f"
+          "9f673a8b-4319-4dcd-aa1c-5a7fe8562e4f",
+          "39c50463-6326-44ad-b203-d7c73bc1c863"
         ],
         "settings": {
+          "logoImage": "shopify:\/\/shop_images\/Logo.svg",
+          "locationIcon": "shopify:\/\/shop_images\/location.svg",
+          "locationText": "Denver, Colorado",
+          "emailIcon": "shopify:\/\/shop_images\/email.svg",
+          "emailText": "support.demo@gmail.com",
           "container": true,
           "bg_color": "#000000",
           "bg_style": "text-white",
@@ -252,8 +265,8 @@
           "gutter_mobile": 3,
           "gutter_tablet": 4,
           "gutter_desktop": 6,
-          "padding_top": 11,
-          "padding_bottom": 0,
+          "padding_top": 8,
+          "padding_bottom": 5,
           "margin_top": 0,
           "margin_bottom": 0
         }
