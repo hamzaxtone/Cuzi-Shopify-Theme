@@ -39,37 +39,6 @@
           "text_color": "text-white"
         }
       },
-      "16124340768622aa4c": {
-        "type": "carousel",
-        "blocks": {
-          "16124340768622aa4c-0": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/cuzi-product.png",
-              "title": "healthy JUICE",
-              "title_size": "h3",
-              "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "16124340768622aa4c-0"
-        ],
-        "settings": {
-          "container": false,
-          "controls": false,
-          "indicators": false,
-          "style": "",
-          "transition": "slide",
-          "interval": 6,
-          "img_width": "465",
-          "img_height": "556",
-          "image_min_height": "",
-          "margin_top": 0,
-          "margin_bottom": 8,
-          "classes": "custom-carousel"
-        }
-      },
       "161243980752a5ed7a": {
         "type": "featured-collection",
         "settings": {
@@ -1613,10 +1582,40 @@
           "max_width": "1320",
           "heading_size": "display-5"
         }
+      },
+      "520b9bd2-606b-4e5c-931a-f42933a357ea": {
+        "type": "carousel",
+        "blocks": {
+          "520b9bd2-606b-4e5c-931a-f42933a357ea-1684067058d28a911f-0": {
+            "type": "image",
+            "settings": {
+              "title": "First slide title",
+              "title_size": "h3",
+              "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "520b9bd2-606b-4e5c-931a-f42933a357ea-1684067058d28a911f-0"
+        ],
+        "settings": {
+          "container": false,
+          "controls": true,
+          "indicators": true,
+          "style": "",
+          "transition": "slide",
+          "interval": 6,
+          "img_width": "1920",
+          "img_height": "640",
+          "image_min_height": "360",
+          "margin_top": 0,
+          "margin_bottom": 7,
+          "classes": ""
+        }
       }
     },
     "content_for_index": [
-      "16124340768622aa4c",
+      "520b9bd2-606b-4e5c-931a-f42933a357ea",
       "161313402064cf991c",
       "16418457389039b385",
       "164166846465a1cf74",
