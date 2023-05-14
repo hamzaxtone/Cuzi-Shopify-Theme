@@ -207,6 +207,14 @@
       "footer-blocks": {
         "type": "footer-blocks",
         "blocks": {
+          "e00e2603-5c9c-4373-9917-00d8e58fb8f5": {
+            "type": "richtext",
+            "settings": {
+              "heading": "About Cuzi",
+              "description": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour All the Lorem Ipsum generators on the Internet tend<\/p>",
+              "heading_size": "h5"
+            }
+          },
           "84d98f57-a71d-49ea-a1a3-3fab0b59ff64": {
             "type": "menu",
             "settings": {
@@ -233,21 +241,13 @@
               "heading_size": "h5",
               "direction": "flex-column"
             }
-          },
-          "e00e2603-5c9c-4373-9917-00d8e58fb8f5": {
-            "type": "richtext",
-            "settings": {
-              "heading": "About Us",
-              "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus  facilisis. <\/p><p><br\/>ADDRESS : HERITAGE WHEEL, 5159 BROOKS ST, SUITE G, \t                    MONTCLAIR CA 91763PRINTING <\/p><p>EMAIL : INFO@HERITAGEWHEEL.COM<\/p>",
-              "heading_size": "h5"
-            }
           }
         },
         "block_order": [
+          "e00e2603-5c9c-4373-9917-00d8e58fb8f5",
           "84d98f57-a71d-49ea-a1a3-3fab0b59ff64",
           "9f673a8b-4319-4dcd-aa1c-5a7fe8562e4f",
-          "468f5cea-de04-4404-8c8e-da00b85cee28",
-          "e00e2603-5c9c-4373-9917-00d8e58fb8f5"
+          "468f5cea-de04-4404-8c8e-da00b85cee28"
         ],
         "settings": {
           "container": true,
