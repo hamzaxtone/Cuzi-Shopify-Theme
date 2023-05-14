@@ -240,6 +240,11 @@
           "9f673a8b-4319-4dcd-aa1c-5a7fe8562e4f"
         ],
         "settings": {
+          "logoImage": "shopify:\/\/shop_images\/Logo.svg",
+          "locationIcon": "shopify:\/\/shop_images\/location.svg",
+          "locationText": "Denver, Colorado",
+          "emailIcon": "shopify:\/\/shop_images\/email.svg",
+          "emailText": "support.demo@gmail.com",
           "container": true,
           "bg_color": "#000000",
           "bg_style": "text-white",
