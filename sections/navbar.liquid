@@ -33,7 +33,7 @@
         <div class="navbar-expands ms-0 ms-{{ section.settings.breakpoint }}-3 order-{{ section.settings.breakpoint }}-1">
             <ul
                 id="navbar-icons-nav" 
-                class="navbar-nav align-items-center">
+                class="navbar-nav align-items-center d-flex flex-row">
                 <li class="mx-1"><!-- Navbar toggle -->
         <button 
             class="navbar-toggler me-3" 
@@ -65,7 +65,7 @@
                 {% if section.settings.show_account and shop.customer_accounts_enabled %}
                     <li 
                         id="account-nav-item"
-                        class="nav-item d-none d-{{ section.settings.breakpoint }}-block">
+                        class="mx-1 nav-item d-none d-{{ section.settings.breakpoint }}-block">
                         <a 
                             class="nav-link d-flex {% if template.name == 'account' or template.name == 'login' %}active{% endif %}" 
                             href="{{ routes.account_url }}"
