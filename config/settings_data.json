@@ -13,7 +13,7 @@
       "navbar": {
         "type": "navbar",
         "settings": {
-          "container": false,
+          "container": true,
           "bg_color": "rgba(0,0,0,0)",
           "background_style": "navbar-light",
           "shadow": "shadow-sm",
