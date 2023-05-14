@@ -483,8 +483,9 @@
           "161313402064cf991c-0": {
             "type": "content",
             "settings": {
-              "heading": "FREE SHIPPING",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
+              "img": "shopify:\/\/shop_images\/sugar.svg",
+              "heading": "No Sugar",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -492,8 +493,9 @@
           "161313402064cf991c-1": {
             "type": "content",
             "settings": {
-              "heading": "30 DAYS MONEY BACK",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
+              "img": "shopify:\/\/shop_images\/juice.svg",
+              "heading": "100% Pure juice",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -501,17 +503,8 @@
           "161313402064cf991c-2": {
             "type": "content",
             "settings": {
-              "heading": "SAFE PAYMENT",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
-              "btn_label": "",
-              "btn_url": "#"
-            }
-          },
-          "161313402064cf991c-3": {
-            "type": "content",
-            "settings": {
-              "heading": "LOYALTY CUSTOMER",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
+              "heading": "natural Occurring",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -520,8 +513,7 @@
         "block_order": [
           "161313402064cf991c-0",
           "161313402064cf991c-1",
-          "161313402064cf991c-2",
-          "161313402064cf991c-3"
+          "161313402064cf991c-2"
         ],
         "settings": {
           "heading": "",
