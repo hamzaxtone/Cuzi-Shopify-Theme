@@ -11,7 +11,7 @@
         <div class="row align-items-center {{ section.settings.img_alignment }}">
             
                 {% unless section.settings.heading == blank %}
-                <div class="col-md-12">
+                <div class="col-md-12 mb-3">
                     <h2 class="heading mb-2 text-center {{ section.settings.heading_size }}">
                         {{ section.settings.heading }}
                     </h2>
@@ -27,7 +27,7 @@
 {% else %}
 {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
 <img 
-    class="many-variations-img img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+    class="many-variations-img img-fluid mb-2 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
     src="{{ section.settings.box1_img | img_url: img_size, crop: 'center' }}"
     alt="{{ section.settings.box1_img.alt | escape }}" 
     width="{{ section.settings.img_width }}"
@@ -35,7 +35,7 @@
     loading="lazy">
 {% endif %}
                     {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
-                    {% unless section.settings.box1_desc == blank %}<p>{{ section.settings.box1_desc }}</p>{% endunless %}
+                    {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
                 </div>
                 <div class="image-box-tex text-end">
                     <!-- Image -->
@@ -44,7 +44,7 @@
 {% else %}
 {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
 <img 
-    class="many-variations-img img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+    class="many-variations-img img-fluid mb-2 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
     src="{{ section.settings.box2_img | img_url: img_size, crop: 'center' }}"
     alt="{{ section.settings.box2_img.alt | escape }}" 
     width="{{ section.settings.img_width }}"
@@ -52,7 +52,7 @@
     loading="lazy">
 {% endif %}
                     {% unless section.settings.box2_heading == blank %}<h6>{{ section.settings.box2_heading }}</h6>{% endunless %}
-                    {% unless section.settings.box2_desc == blank %}<p>{{ section.settings.box2_desc }}</p>{% endunless %}
+                    {% unless section.settings.box2_desc == blank %}{{ section.settings.box2_desc }}{% endunless %}
                 </div>
             </div>
             <div class="col-md-4 product-image-col">
@@ -78,7 +78,7 @@
 {% else %}
 {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
 <img 
-    class="many-variations-img img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+    class="many-variations-img img-fluid mb-2 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
     src="{{ section.settings.box3_img | img_url: img_size, crop: 'center' }}"
     alt="{{ section.settings.box3_img.alt | escape }}" 
     width="{{ section.settings.img_width }}"
@@ -86,7 +86,7 @@
     loading="lazy">
 {% endif %}
                     {% unless section.settings.box3_heading == blank %}<h6>{{ section.settings.box3_heading }}</h6>{% endunless %}
-                    {% unless section.settings.box3_desc == blank %}<p>{{ section.settings.box3_desc }}</p>{% endunless %}
+                    {% unless section.settings.box3_desc == blank %}{{ section.settings.box3_desc }}{% endunless %}
                 </div>
                 <div class="image-box-tex text-start">
                     <!-- Image -->
@@ -95,7 +95,7 @@
 {% else %}
 {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
 <img 
-    class="many-variations-img img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+    class="many-variations-img img-fluid mb-2 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
     src="{{ section.settings.box4_img | img_url: img_size, crop: 'center' }}"
     alt="{{ section.settings.box4_img.alt | escape }}" 
     width="{{ section.settings.img_width }}"
@@ -103,7 +103,7 @@
     loading="lazy">
 {% endif %}
                     {% unless section.settings.box4_heading == blank %}<h6>{{ section.settings.box4_heading }}</h6>{% endunless %}
-                    {% unless section.settings.box4_desc == blank %}<p>{{ section.settings.box4_desc }}</p>{% endunless %}
+                    {% unless section.settings.box4_desc == blank %}{{ section.settings.box4_desc }}{% endunless %}
                 </div>
             </div>
         
