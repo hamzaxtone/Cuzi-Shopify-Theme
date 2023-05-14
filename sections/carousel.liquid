@@ -7,13 +7,27 @@
     {% assign interval = false %}
 {% endif %}
 
-bg_image
+{% if section.settings.bg_image == blank %}
+{% else %}
+{% if section.settings.classes %}
+    <style>
+    
+    .{{section.settings.classes}} {
+        background-image: url({{ section.settings.Image | img_url: img_size, crop: 'center' }});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+    }
+    
+    </style>
+    {% endif %}
+{% endif %}
 <div
     id="{{ 'carousel-wrapper' | append: section.id }}" 
     
         
     
-    class="asd {% if section.settings.container %}container{% endif %} {{ mt }} {{ mb }} {% if section.settings.classes %}{{section.settings.classes}}{% endif %}">
+    class="asd carousel-wrapper {% if section.settings.container %}container{% endif %} {{ mt }} {{ mb }} {% if section.settings.classes %}{{section.settings.classes}}{% endif %}">
 
     <!-- Carousel -->
     <div
@@ -65,14 +79,12 @@ bg_image
                             {% assign img_size      = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
                             {% assign img_size_800  = 800 | divided_by: block.settings.image.aspect_ratio | round | prepend: '800x' %}
                             <img
-                                class="d-block w-100 object-fit-cover h-auto"
+                                class="img-fluid"
                                 src="{{ block.settings.image | img_url: img_size, crop: 'center' }}"
                                 srcset="{{ block.settings.image | img_url: img_size_800, crop: 'center' }} 800w, {{ block.settings.image | img_url: img_size, crop: 'center' }} 1600w"
                                 alt="{{ block.settings.image.alt }}"
-                                width="{{ section.settings.img_width }}"
-                                height="{{ section.settings.img_height }}"
                                 loading="lazy"
-                                style="{{ section.settings.image_min_height | prepend: 'min-height: ' | append: 'px' }};">
+                                >
                         {% else %}
                             {% capture current %}{% cycle 1, 2 %}{% endcapture %}<!-- Do not use new lines here -->
                             {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg d-block bg-secondary' }}
@@ -135,7 +147,7 @@ bg_image
         {
             "type": "image_picker",
             "id": "bg_image",
-            "label": "Center Product Image"
+            "label": "background Image"
         },
         {
             "type": "checkbox",
