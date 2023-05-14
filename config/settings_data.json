@@ -17,7 +17,7 @@
           "container": true,
           "bg_color": "rgba(0,0,0,0)",
           "background_style": "navbar-light",
-          "shadow": "shadow-sm",
+          "shadow": "shadow-none",
           "sticky": false,
           "logo": "shopify:\/\/shop_images\/Logo.svg",
           "logo_height": "77",
