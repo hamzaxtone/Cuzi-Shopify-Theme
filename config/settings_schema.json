@@ -79,7 +79,7 @@
     ]
   },
   {
-    "name": "Typography",
+    "name": "Heading Typography",
     "settings": [
       {
         "type": "font_picker",
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "name": "Typography",
+    "name": "Body Typography",
     "settings": [
       {
         "type": "font_picker",

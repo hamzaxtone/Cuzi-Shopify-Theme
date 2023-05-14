@@ -5,7 +5,7 @@
 
 {{ settings.font_headings | font_face: font_display: 'swap'  }}
 body{
- font-family: {{settings.font_body}};   
+ font-family: {{settings.font_body.family}};   
 }
 :root {
     --color-primary:                    {{ settings.color_primary }};
