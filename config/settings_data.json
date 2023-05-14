@@ -66,7 +66,6 @@
       },
       "16131223138a584ff0": {
         "type": "newsletter",
-        "disabled": true,
         "settings": {
           "heading": "Newsletter subscribe",
           "subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
@@ -79,56 +78,6 @@
           "padding_bottom": 0,
           "margin_top": 0,
           "margin_bottom": 8
-        }
-      },
-      "16131300457e5a9b91": {
-        "type": "testimonials",
-        "disabled": true,
-        "blocks": {
-          "16131300457e5a9b91-0": {
-            "type": "testimonial",
-            "settings": {
-              "text": "<p>I love Shopify Shopify Themes, not only they are beautiful and attractive but they are super-fast as well. I have tried different theme providers before but with Shopify&#x27;s themes I could finish my store very quickly (within 1 week). I can recommend Shopify, that&#x27;s for sure... A+++<\/p>",
-              "name": "John Doe"
-            }
-          },
-          "16131300457e5a9b91-1": {
-            "type": "testimonial",
-            "settings": {
-              "text": "<p>I have been successfully running my store with Shopify&#x27;s theme, KS WatchShop for 2 months now, and I&#x27;m really impressed with the performance and speed it has. The speed-rank for my Shopify store has increased dramatically after I switched to this theme...<\/p>",
-              "name": "Jane Doe"
-            }
-          },
-          "16131300457e5a9b91-2": {
-            "type": "testimonial",
-            "settings": {
-              "text": "<p>I thought to try Shopify Themes for one of my new Ecommerce adventures (a gift shop for my fiancé) and oh i was really blown away by the performance. They are just fast. Also, their themes have many sections available so that i can adjust the homepage exactly as I want to....<\/p>",
-              "name": "Jim Doe"
-            }
-          }
-        },
-        "block_order": [
-          "16131300457e5a9b91-0",
-          "16131300457e5a9b91-1",
-          "16131300457e5a9b91-2"
-        ],
-        "settings": {
-          "heading": "Customer testimonials",
-          "subheading": "<p>Write something catchy for this section.<\/p>",
-          "light_bg": false,
-          "heading_size": "h2",
-          "heading_alignment": "text-center",
-          "subheading_size": "",
-          "img_width": "60",
-          "img_height": "60",
-          "img_circle": true,
-          "controls": true,
-          "indicators": true,
-          "interval": 6,
-          "padding_top": 0,
-          "padding_bottom": 0,
-          "margin_top": 0,
-          "margin_bottom": 7
         }
       },
       "161313402064cf991c": {
@@ -201,73 +150,6 @@
           "classes": "txt-icon-desc"
         }
       },
-      "1613321883059203ae": {
-        "type": "map",
-        "disabled": true,
-        "settings": {
-          "heading": "Our physical address",
-          "subheading": "<p>Come and say Hello. We will be happy to meet your in person.<\/p>",
-          "container": false,
-          "light_bg": false,
-          "heading_size": "h2",
-          "heading_alignment": "text-center",
-          "subheading_size": "",
-          "api_key": "AIzaSyDpX9IvWgz_RAIftiJa8Fqxx8LJKwotoyI",
-          "lat": "43.750840",
-          "lng": "7.441000",
-          "zoom": 15,
-          "map_height": "380",
-          "title": "Your Shop Name",
-          "content": "<p>Avenue Princesse Grace<br\/>Monaco, MC<\/p><p>Mon - Fri, 10am - 9pm<br\/>Saturday, 11am - 9pm<br\/>Sunday, 11am - 5pm<\/p>",
-          "content_alignment": "text-center",
-          "btn_label": "Get directions",
-          "btn_color": "btn-outline-secondary",
-          "padding_top": 0,
-          "padding_bottom": 0,
-          "margin_top": 0,
-          "margin_bottom": 7
-        }
-      },
-      "161346609112cd0f90": {
-        "type": "video",
-        "disabled": true,
-        "settings": {
-          "heading": "Video",
-          "subheading": "<p>Write something catchy for this section.<\/p>",
-          "light_bg": true,
-          "heading_size": "h2",
-          "subheading_size": "",
-          "heading_alignment": "text-center",
-          "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-          "ratio": "ratio-16x9",
-          "max_width": "",
-          "youtube_start": "",
-          "youtube_controls": true,
-          "youtube_privacy": true,
-          "padding_top": 7,
-          "padding_bottom": 8,
-          "margin_top": 0,
-          "margin_bottom": 7
-        }
-      },
-      "16134715004dcac0f0": {
-        "type": "html",
-        "disabled": true,
-        "settings": {
-          "html": "<p class=\"alert alert-info\">Hello world!<\/p>",
-          "heading": "HTML",
-          "subheading": "<p>Write something catchy for this section.<\/p>",
-          "container": true,
-          "light_bg": false,
-          "heading_size": "h2",
-          "subheading_size": "",
-          "heading_alignment": "text-center",
-          "padding_top": 0,
-          "padding_bottom": 0,
-          "margin_top": 0,
-          "margin_bottom": 7
-        }
-      },
       "blog-template": {
         "type": "blog-template",
         "settings": {
@@ -315,130 +197,6 @@
           "show_back_to_btn": true,
           "back_to_btn_color": "btn-outline-secondary",
           "back_to_btn_size": ""
-        }
-      },
-      "16136560969da8aed2": {
-        "type": "blog-posts",
-        "settings": {
-          "blog": "news",
-          "limit": 3,
-          "heading": "The Latest Blogs",
-          "subheading": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<\/p>",
-          "container": true,
-          "light_bg": false,
-          "heading_size": "h2",
-          "heading_alignment": "text-center",
-          "subheading_size": "",
-          "show_view_all_btn": false,
-          "view_all_btn_color": "btn-secondary",
-          "view_all_btn_size": "",
-          "article_heading_size": "h6",
-          "show_author": false,
-          "show_date": true,
-          "img_width": "480",
-          "img_height": "480",
-          "img_thumbnail": false,
-          "show_excerpt": true,
-          "excerpt_length": "150",
-          "show_posted_in": false,
-          "show_readmore": true,
-          "show_comments": false,
-          "readmore_btn_color": "btn-link",
-          "readmore_btn_size": "btn-sm",
-          "show_social_sharing": false,
-          "row_": 1,
-          "row_sm": 2,
-          "row_md": 2,
-          "row_lg": 3,
-          "row_xl": 3,
-          "row_xxl": 3,
-          "gutter_mobile": 3,
-          "gutter_tablet": 4,
-          "gutter_desktop": 6,
-          "padding_top": 0,
-          "padding_bottom": 5,
-          "margin_top": 0,
-          "margin_bottom": 5
-        }
-      },
-      "16136830093258d47c": {
-        "type": "separator",
-        "disabled": true,
-        "settings": {
-          "container": true,
-          "bg_color": "#dee2e6",
-          "margin_top": 8,
-          "margin_bottom": 7
-        }
-      },
-      "161368561105e641b5": {
-        "type": "faq",
-        "disabled": true,
-        "blocks": {
-          "161368561105e641b5-0": {
-            "type": "text",
-            "settings": {
-              "title": "Where do you ship?",
-              "description": "<p>We ship all around the world... Please provide here you own shipping information, including times, prices, options etc.<\/p>"
-            }
-          },
-          "161368561105e641b5-1": {
-            "type": "text",
-            "settings": {
-              "title": "How long will it take to receive my order",
-              "description": "<p>This depends on whether it is an International or a Domestic order. All orders within the U.S. are considered domestic orders and they are shipped and delivered within 2-5 business days. Please see International Orders for more details.<\/p>"
-            }
-          },
-          "161368561105e641b5-2": {
-            "type": "text",
-            "settings": {
-              "title": "What payment methods do you support?",
-              "description": "<p>We accept PayPal, Visa, MasterCard, Discover, and American Express but feel free to contact us for other payment options.<\/p>"
-            }
-          },
-          "161368561105e641b5-3": {
-            "type": "text",
-            "settings": {
-              "title": "How can I track my order?",
-              "description": "<p>We will send tracking information to the e-mail address associated with your order once the item has shipped. If you have not received your tracking information and it has been over 2 business day, please contact us at (012) 123 - 4567<\/p>"
-            }
-          },
-          "161368561105e641b5-4": {
-            "type": "text",
-            "settings": {
-              "title": "Can I order as a gift for someone else?",
-              "description": "<p>When ordering as a gift for someone, be sure to enter in your email address to receive all summary information but enter in the recipient’s name and shipping information. We will be sure to keep all prices and receipts out of the package.<\/p>"
-            }
-          },
-          "161368561105e641b5-5": {
-            "type": "text",
-            "settings": {
-              "title": "How can I get a refund for my order?",
-              "description": "<p>If for any reason you are not completely satisfied with your purchase, within 30 days of placing your order, we will refund you for your purchase with no questions asked.<\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "161368561105e641b5-0",
-          "161368561105e641b5-1",
-          "161368561105e641b5-2",
-          "161368561105e641b5-3",
-          "161368561105e641b5-4",
-          "161368561105e641b5-5"
-        ],
-        "settings": {
-          "heading": "F.A.Q",
-          "subheading": "<p>Write something catchy for this section.<\/p>",
-          "light_bg": false,
-          "heading_size": "h2",
-          "heading_alignment": "text-center",
-          "subheading_size": "",
-          "max_width": "768",
-          "accordion_style": "",
-          "padding_top": 0,
-          "padding_bottom": 0,
-          "margin_top": 0,
-          "margin_bottom": 8
         }
       },
       "footer-blocks": {
@@ -745,67 +503,6 @@
           "margin_bottom": 0
         }
       },
-      "16416780431bbd7218": {
-        "type": "logo-list",
-        "disabled": true,
-        "blocks": {
-          "a77e6441-522a-4474-9e22-ec4dedbbff08": {
-            "type": "logo",
-            "settings": {
-              "url": ""
-            }
-          },
-          "3922168b-5942-4f8c-85da-45b25cef3ac0": {
-            "type": "logo",
-            "settings": {
-              "url": ""
-            }
-          },
-          "5e157e90-9cbe-49e2-a5e9-6bfeec44824c": {
-            "type": "logo",
-            "settings": {
-              "url": ""
-            }
-          },
-          "a1e517ad-8afd-4738-933a-38ad414c2405": {
-            "type": "logo",
-            "settings": {
-              "url": ""
-            }
-          }
-        },
-        "block_order": [
-          "a77e6441-522a-4474-9e22-ec4dedbbff08",
-          "3922168b-5942-4f8c-85da-45b25cef3ac0",
-          "5e157e90-9cbe-49e2-a5e9-6bfeec44824c",
-          "a1e517ad-8afd-4738-933a-38ad414c2405"
-        ],
-        "settings": {
-          "heading": "",
-          "subheading": "",
-          "container": true,
-          "light_bg": true,
-          "heading_size": "h2",
-          "heading_alignment": "text-center",
-          "subheading_size": "",
-          "img_width": "320",
-          "img_height": "320",
-          "img_thumbnail": false,
-          "row_": 2,
-          "row_sm": 3,
-          "row_md": 4,
-          "row_lg": 4,
-          "row_xl": 4,
-          "row_xxl": 4,
-          "gutter_mobile": 3,
-          "gutter_tablet": 3,
-          "gutter_desktop": 4,
-          "padding_top": 8,
-          "padding_bottom": 6,
-          "margin_top": 0,
-          "margin_bottom": 0
-        }
-      },
       "list-collections-template": {
         "type": "list-collections-template",
         "settings": {
@@ -1033,77 +730,6 @@
           "classes": ""
         }
       },
-      "16418457389039b385": {
-        "type": "collection-list",
-        "blocks": {
-          "ae644825-ef84-4fee-9600-1c3d47564bdc": {
-            "type": "collection",
-            "settings": {
-              "collection": "lorem-lipsum-1"
-            }
-          },
-          "28d9ec78-941d-477c-b28e-facb26b0df86": {
-            "type": "collection",
-            "settings": {
-              "collection": "lorem-lipsum2"
-            }
-          },
-          "fb01979d-9cc9-4d21-8e84-8e5ef1c60994": {
-            "type": "collection",
-            "settings": {
-              "collection": "lorem-lipsum3"
-            }
-          },
-          "14c54850-f669-48d6-9d9d-7a52a8e14a42": {
-            "type": "collection",
-            "settings": {
-              "collection": "lorem-lipsum4"
-            }
-          },
-          "a1ecccc9-710a-4a53-bba9-750e13c60812": {
-            "type": "collection",
-            "settings": {
-              "collection": "lorem-lipsum5"
-            }
-          }
-        },
-        "block_order": [
-          "ae644825-ef84-4fee-9600-1c3d47564bdc",
-          "28d9ec78-941d-477c-b28e-facb26b0df86",
-          "fb01979d-9cc9-4d21-8e84-8e5ef1c60994",
-          "14c54850-f669-48d6-9d9d-7a52a8e14a42",
-          "a1ecccc9-710a-4a53-bba9-750e13c60812"
-        ],
-        "settings": {
-          "heading": "",
-          "subheading": "",
-          "container": false,
-          "light_bg": false,
-          "heading_size": "h2",
-          "heading_alignment": "text-center",
-          "subheading_size": "",
-          "show_view_all_btn": false,
-          "view_all_btn_color": "btn-secondary",
-          "view_all_btn_size": "",
-          "img_width": "1000",
-          "img_height": "1000",
-          "img_thumbnail": false,
-          "show_products_count": false,
-          "row_": 2,
-          "row_sm": 2,
-          "row_md": 2,
-          "row_lg": 4,
-          "row_xl": 4,
-          "row_xxl": 5,
-          "gutter_mobile": 3,
-          "gutter_tablet": 3,
-          "gutter_desktop": 4,
-          "padding_top": 0,
-          "padding_bottom": 0,
-          "margin_top": 0,
-          "margin_bottom": 5
-        }
-      },
       "dealer-portal-sec": {
         "type": "dealer-portal-sec",
         "settings": {
@@ -1185,16 +811,7 @@
       "161313402064cf991c",
       "16129467980997b2cd",
       "f533d458-2283-4b06-bc6a-cd39a3520a0d",
-      "16418457389039b385",
-      "16136830093258d47c",
-      "16131300457e5a9b91",
-      "161346609112cd0f90",
-      "161368561105e641b5",
-      "1613321883059203ae",
-      "16136560969da8aed2",
-      "16131223138a584ff0",
-      "16134715004dcac0f0",
-      "16416780431bbd7218"
+      "16131223138a584ff0"
     ]
   },
   "presets": {
