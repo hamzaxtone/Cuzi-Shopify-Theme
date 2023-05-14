@@ -804,12 +804,24 @@
           "margin_top": 0,
           "margin_bottom": 0
         }
+      },
+      "fb0125e1-5353-4764-afb2-c961b8fe2ffd": {
+        "type": "full-section-image",
+        "settings": {
+          "Image": "shopify:\/\/shop_images\/text-image.svg",
+          "container": true,
+          "padding_top": 0,
+          "padding_bottom": 0,
+          "margin_top": 0,
+          "margin_bottom": 0
+        }
       }
     },
     "content_for_index": [
       "520b9bd2-606b-4e5c-931a-f42933a357ea",
       "161313402064cf991c",
       "16129467980997b2cd",
+      "fb0125e1-5353-4764-afb2-c961b8fe2ffd",
       "f533d458-2283-4b06-bc6a-cd39a3520a0d",
       "16131223138a584ff0"
     ]
