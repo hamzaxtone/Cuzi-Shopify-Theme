@@ -5,7 +5,7 @@
 
 <section 
     id="newsletter-{{ section.id }}" 
-    class="newsletter {% if section.settings.light_bg %}bg-light{% endif %} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
+    class="{% if section.settings.classes %}{{section.settings.classes}}{% endif %} newsletter {% if section.settings.light_bg %}bg-light{% endif %} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
     <div class="container">
 
         <div class="heading-wrapper mb-3 overflow-hidden">
@@ -14,11 +14,7 @@
                 {{ section.settings.heading }}
             </h2>
 
-            {% unless section.settings.subheading == blank %}
-                <div class="subheading rte text-muted {{ section.settings.subheading_size }} {{ section.settings.heading_alignment }}">
-                    {{ section.settings.subheading }}
-                </div>
-            {% endunless %}
+            
 
         </div>
 
@@ -55,6 +51,11 @@
                 </button>
             </div>
         {% endform %}
+        {% unless section.settings.subheading == blank %}
+                <div class="subheading rte text-muted {{ section.settings.subheading_size }} {{ section.settings.heading_alignment }}">
+                    {{ section.settings.subheading }}
+                </div>
+        {% endunless %}
 
     </div>
 </section>
@@ -68,6 +69,11 @@
             "type": "header",
             "content": "General settings"
         },
+        {
+            "type": "text",
+            "id": "classes",
+            "label": "Class"
+		},
         {
             "type": "text",
             "id": "heading",
