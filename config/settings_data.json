@@ -39,37 +39,6 @@
           "text_color": "text-white"
         }
       },
-      "16124340768622aa4c": {
-        "type": "carousel",
-        "blocks": {
-          "16124340768622aa4c-0": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/cuzi-product.png",
-              "title": "healthy JUICE",
-              "title_size": "h3",
-              "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "16124340768622aa4c-0"
-        ],
-        "settings": {
-          "container": false,
-          "controls": false,
-          "indicators": false,
-          "style": "",
-          "transition": "slide",
-          "interval": 6,
-          "img_width": "465",
-          "img_height": "556",
-          "image_min_height": "",
-          "margin_top": 0,
-          "margin_bottom": 8,
-          "classes": "custom-carousel"
-        }
-      },
       "161243980752a5ed7a": {
         "type": "featured-collection",
         "settings": {
@@ -177,10 +146,10 @@
       },
       "16129467980997b2cd": {
         "type": "image-with-text",
-        "disabled": true,
         "settings": {
           "container": true,
           "light_bg": false,
+          "img": "shopify:\/\/shop_images\/product2.png",
           "img_width": "720",
           "img_height": "720",
           "img_thumbnail": true,
@@ -1613,11 +1582,43 @@
           "max_width": "1320",
           "heading_size": "display-5"
         }
+      },
+      "520b9bd2-606b-4e5c-931a-f42933a357ea": {
+        "type": "carousel",
+        "blocks": {
+          "520b9bd2-606b-4e5c-931a-f42933a357ea-1684067058d28a911f-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cuzi-product.png",
+              "title": "healthy JUICE",
+              "title_size": "h3",
+              "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "520b9bd2-606b-4e5c-931a-f42933a357ea-1684067058d28a911f-0"
+        ],
+        "settings": {
+          "container": false,
+          "controls": true,
+          "indicators": true,
+          "style": "",
+          "transition": "slide",
+          "interval": 6,
+          "img_width": "1920",
+          "img_height": "640",
+          "image_min_height": "360",
+          "margin_top": 0,
+          "margin_bottom": 7,
+          "classes": "custom-carousel"
+        }
       }
     },
     "content_for_index": [
-      "16124340768622aa4c",
+      "520b9bd2-606b-4e5c-931a-f42933a357ea",
       "161313402064cf991c",
+      "16129467980997b2cd",
       "16418457389039b385",
       "164166846465a1cf74",
       "161243980752a5ed7a",
@@ -1629,7 +1630,6 @@
       "1613034094b1e14cbd",
       "1613036565184adb1d",
       "1613036274b5bc23d7",
-      "16129467980997b2cd",
       "16136830093258d47c",
       "16131300457e5a9b91",
       "161346609112cd0f90",
