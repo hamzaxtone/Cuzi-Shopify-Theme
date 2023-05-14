@@ -1590,6 +1590,8 @@
         "settings": {
           "container": true,
           "light_bg": false,
+          "bg_img": "shopify:\/\/shop_images\/cuzi-product.png",
+          "img": "shopify:\/\/shop_images\/corn.svg",
           "img_width": "720",
           "img_height": "720",
           "img_thumbnail": true,
