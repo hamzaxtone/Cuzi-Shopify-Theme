@@ -18,7 +18,7 @@
           "background_style": "navbar-light",
           "shadow": "shadow-sm",
           "sticky": false,
-          "logo": "shopify:\/\/shop_images\/Untitled-2.png",
+          "logo": "shopify:\/\/shop_images\/Logo.svg",
           "logo_height": "121",
           "menu": "main-menu",
           "menu_position": "mx-auto",
@@ -44,7 +44,6 @@
           "16124340768622aa4c-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/banner.png",
               "title": "HERITAGE WHEEL TIMELESS DESIGN",
               "title_size": "h3",
               "description": "<p>Lorem Ipsum is simply dummy text<\/p>"
@@ -53,7 +52,6 @@
           "d849177d-1033-4719-8146-1d745abf5c04": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/banner.png",
               "title": "HERITAGE WHEEL TIMELESS DESIGN 2",
               "title_size": "h3",
               "description": "<p>sa asdadasdas d<\/p>"
@@ -314,7 +312,6 @@
           "4542108e-43c9-4d88-b996-7fd9b750fad4": {
             "type": "image",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Group-17.png",
               "url": "#",
               "caption": "",
               "caption_size": "h6"
@@ -323,7 +320,6 @@
           "27d3af47-c122-4a20-b3a2-4664ed203eca": {
             "type": "image",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Group-17-copy.png",
               "url": "#",
               "caption": "",
               "caption_size": "h6"
@@ -332,7 +328,6 @@
           "585f88aa-a094-4668-8bc1-ba23f9bbdddd": {
             "type": "image",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Group-17-copy-2.png",
               "url": "#",
               "caption": "",
               "caption_size": "h6"
@@ -341,7 +336,6 @@
           "73417504-c1cc-48b7-a328-5382ba548e24": {
             "type": "image",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Group-17-copy-3.jpg",
               "url": "#",
               "caption": "",
               "caption_size": "h6"
@@ -497,7 +491,6 @@
           "161313402064cf991c-0": {
             "type": "content",
             "settings": {
-              "img": "shopify:\/\/shop_images\/freeshipping_be725244-147b-43f3-80bd-4e7c04c70303.png",
               "heading": "FREE SHIPPING",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
@@ -507,7 +500,6 @@
           "161313402064cf991c-1": {
             "type": "content",
             "settings": {
-              "img": "shopify:\/\/shop_images\/money-back.png",
               "heading": "30 DAYS MONEY BACK",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
@@ -517,7 +509,6 @@
           "161313402064cf991c-2": {
             "type": "content",
             "settings": {
-              "img": "shopify:\/\/shop_images\/safe-payment.png",
               "heading": "SAFE PAYMENT",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
@@ -527,7 +518,6 @@
           "161313402064cf991c-3": {
             "type": "content",
             "settings": {
-              "img": "shopify:\/\/shop_images\/loyalty-customer.png",
               "heading": "LOYALTY CUSTOMER",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing  tempor incididunt ut labore et dolore <\/p>",
               "btn_label": "",
@@ -846,7 +836,7 @@
           "9f673a8b-4319-4dcd-aa1c-5a7fe8562e4f": {
             "type": "menu",
             "settings": {
-              "menu": "my-account",
+              "menu": "",
               "heading": "MY ACCOUNT",
               "heading_size": "h5",
               "direction": "flex-column"
@@ -855,7 +845,7 @@
           "468f5cea-de04-4404-8c8e-da00b85cee28": {
             "type": "menu",
             "settings": {
-              "menu": "information",
+              "menu": "",
               "heading": "Information",
               "heading_size": "h5",
               "direction": "flex-column"
@@ -1100,7 +1090,6 @@
           "7fd29388-510c-438c-a0f8-0abea54b34ed": {
             "type": "image",
             "settings": {
-              "img": "shopify:\/\/shop_images\/image-column-overlay.png",
               "url": "",
               "caption": "",
               "caption_size": "h6"
@@ -1227,7 +1216,7 @@
           "13ed76b0-a0d0-476e-a09a-43d42a13f68a": {
             "type": "menu",
             "settings": {
-              "menu": "social",
+              "menu": "",
               "heading": "Follow Us",
               "heading_size": "h5",
               "direction": ""
@@ -1242,7 +1231,6 @@
           "08e02935-39d1-4ed4-a900-7db0deafd62a": {
             "type": "image",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Untitled-2.png",
               "img_width": "205",
               "img_height": "205",
               "btn_url": "",
@@ -1281,28 +1269,24 @@
           "a77e6441-522a-4474-9e22-ec4dedbbff08": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13.png",
               "url": ""
             }
           },
           "3922168b-5942-4f8c-85da-45b25cef3ac0": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13_copy.png",
               "url": ""
             }
           },
           "5e157e90-9cbe-49e2-a5e9-6bfeec44824c": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13_copy_2.png",
               "url": ""
             }
           },
           "a1e517ad-8afd-4738-933a-38ad414c2405": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13_copy_3.png",
               "url": ""
             }
           }
@@ -1369,28 +1353,24 @@
           "d4169356-4914-450e-80f9-9c0bce0fa2bc": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13.png",
               "url": ""
             }
           },
           "d78ea8bf-4d27-4d1a-a740-a0c7b63a1776": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13_copy_3.png",
               "url": ""
             }
           },
           "b2fb122c-dcd2-4355-9b0b-af4f6fd66e4d": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13_copy.png",
               "url": ""
             }
           },
           "069167f7-34ad-4cab-be0c-a9ce7333c881": {
             "type": "logo",
             "settings": {
-              "img": "shopify:\/\/shop_images\/Rectangle_13_copy_2.png",
               "url": ""
             }
           }
