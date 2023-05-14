@@ -49,24 +49,14 @@
               "title_size": "h3",
               "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
             }
-          },
-          "31dbf3de-2386-401d-aaaf-2872cd1bbac3": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/cuzi-product.png",
-              "title": "healthy JUICE",
-              "title_size": "h3",
-              "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
-            }
           }
         },
         "block_order": [
-          "16124340768622aa4c-0",
-          "31dbf3de-2386-401d-aaaf-2872cd1bbac3"
+          "16124340768622aa4c-0"
         ],
         "settings": {
-          "container": true,
-          "controls": true,
+          "container": false,
+          "controls": false,
           "indicators": false,
           "style": "",
           "transition": "slide",
