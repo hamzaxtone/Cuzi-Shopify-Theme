@@ -116,6 +116,7 @@
         {% endif %}
         
         {% unless template == 'index' or template == 'list-collections' %}
+           {% comment %}
 <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
   <a href="/" title="Home">Home</a>
   
@@ -172,6 +173,7 @@
   
   
 </nav>
+           {% endcomment %}
 {% endunless %}
         
         
