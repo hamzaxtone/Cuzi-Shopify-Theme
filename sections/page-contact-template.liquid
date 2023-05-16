@@ -20,13 +20,14 @@
             </h1>
 
         </div>
-      {% endcomment %}
+      
 
         <!-- Description -->
         <div class="description rte text-center text-muted overflow-hidden mb-4">
             {{ page.content }}
         </div>
-        <div class="row">
+        {% endcomment %}
+        <div class="row my-5 py-5">
           <div class="col-md-6">
               <div class="contact-box">
                  {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
@@ -50,7 +51,7 @@
           
         </div>
         <!-- Contact form -->
-        {% form 'contact', class: 'contact-form mb-8' %}
+        {% form 'contact', class: 'contact-form my-8' %}
 
             <!-- Form success -->
             {% if form.posted_successfully? %}
