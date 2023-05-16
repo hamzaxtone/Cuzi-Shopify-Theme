@@ -64,56 +64,58 @@
     </div>
 
     <div class="who-we-are">
-      <div class="row my-10">
-        <div class="col-md-12">
-          {% unless section.settings.whoWeAreHeading == blank -%}
-            <h2 class="heading h2 text-center">{{ section.settings.whoWeAreHeading }}</h2>
-          {%- endunless %}
-        </div>
-        <div class="col-md-6">
-          <div class="why-cuzi">
-            <div class="box-img">
-              {% if section.settings.why_img == blank %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
-              {% else %}
-                {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
-                <img
-                  class=" img-fluid h-auto mb-2 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
-                  src="{{ section.settings.why_img | img_url: img_size, crop: 'center' }}"
-                  alt="{{ section.settings.why_img.alt | escape }}"
-                  loading="lazy"
-                >
-              {% endif %}
-            </div>
-            {% unless section.settings.why_heading == blank -%}
-              <h2 class="heading h2 text-start">{{ section.settings.why_heading }}</h2>
-            {%- endunless %}
-            {% unless section.settings.why_desc == blank -%}
-              <p>{{ section.settings.why_desc }}</p>
+      <div class="container">
+        <div class="row my-10">
+          <div class="col-md-12">
+            {% unless section.settings.whoWeAreHeading == blank -%}
+              <h2 class="heading h2 text-center">{{ section.settings.whoWeAreHeading }}</h2>
             {%- endunless %}
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="how-cuzi">
-            <div class="box-img">
-              {% if section.settings.how_we_img == blank %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
-              {% else %}
-                {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
-                <img
-                  class=" img-fluid h-auto mb-2 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
-                  src="{{ section.settings.how_we_img | img_url: img_size, crop: 'center' }}"
-                  alt="{{ section.settings.how_we_img.alt | escape }}"
-                  loading="lazy"
-                >
-              {% endif %}
+          <div class="col-md-6">
+            <div class="why-cuzi">
+              <div class="box-img">
+                {% if section.settings.why_img == blank %}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+                {% else %}
+                  {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+                  <img
+                    class=" img-fluid h-auto mb-2 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
+                    src="{{ section.settings.why_img | img_url: img_size, crop: 'center' }}"
+                    alt="{{ section.settings.why_img.alt | escape }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+              {% unless section.settings.why_heading == blank -%}
+                <h2 class="heading h2 text-start">{{ section.settings.why_heading }}</h2>
+              {%- endunless %}
+              {% unless section.settings.why_desc == blank -%}
+                <p>{{ section.settings.why_desc }}</p>
+              {%- endunless %}
             </div>
-            {% unless section.settings.how_we_heading == blank -%}
-              <h2 class="heading h2 text-start">{{ section.settings.how_we_heading }}</h2>
-            {%- endunless %}
-            {% unless section.settings.how_we_desc == blank -%}
-              <p>{{ section.settings.how_we_desc }}</p>
-            {%- endunless %}
+          </div>
+          <div class="col-md-6">
+            <div class="how-cuzi">
+              <div class="box-img">
+                {% if section.settings.how_we_img == blank %}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+                {% else %}
+                  {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+                  <img
+                    class=" img-fluid h-auto mb-2 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
+                    src="{{ section.settings.how_we_img | img_url: img_size, crop: 'center' }}"
+                    alt="{{ section.settings.how_we_img.alt | escape }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+              {% unless section.settings.how_we_heading == blank -%}
+                <h2 class="heading h2 text-start">{{ section.settings.how_we_heading }}</h2>
+              {%- endunless %}
+              {% unless section.settings.how_we_desc == blank -%}
+                <p>{{ section.settings.how_we_desc }}</p>
+              {%- endunless %}
+            </div>
           </div>
         </div>
       </div>
