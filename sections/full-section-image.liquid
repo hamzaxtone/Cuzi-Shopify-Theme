@@ -3,26 +3,26 @@
 {% assign mt = section.settings.margin_top | prepend: 'mt-' %}
 {% assign mb = section.settings.margin_bottom | prepend: 'mb-' %}
 
-<section 
-    id="full-width-image-section-{{ section.id }}" 
-    class="{% if section.settings.classes %}{{section.settings.classes}}{% endif %} full-width-image-section {% if section.settings.light_bg %}bg-light{% endif %} {{ pt }} {{ pb }} {{ mt }} {{ mb }}">
-    <div class=" {% if section.settings.container %}container{% else %} {% endif %}">
+<section
+  id="full-width-image-section-{{ section.id }}"
+  class="{% if section.settings.classes %}{{section.settings.classes}}{% endif %} full-width-image-section {% if section.settings.light_bg %}bg-light{% endif %} {{ pt }} {{ pb }} {{ mt }} {{ mb }}"
+>
+  <div class=" {% if section.settings.container %}container{% else %} {% endif %}">
+    <div class="image">
+      <!-- Image -->
+      {% if section.settings.Image == blank %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+      {% else %}
+        <img
+          class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
+          src="{{ section.settings.Image | img_url: img_size, crop: 'center' }}"
+          alt="{{ section.settings.Image.alt | escape }}"
 
-        <div class="image">
-            <!-- Image -->
-{% if section.settings.Image == blank %}
-{{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
-{% else %}
-<img 
-    class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
-    src="{{ section.settings.Image | img_url: img_size, crop: 'center' }}"
-    alt="{{ section.settings.Image.alt | escape }}" 
-    
-    loading="lazy">
-{% endif %}
-        </div>
-
+          loading="lazy"
+        >
+      {% endif %}
     </div>
+  </div>
 </section>
 
 {% schema %}
