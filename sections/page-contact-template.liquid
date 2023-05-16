@@ -33,6 +33,23 @@
                  {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
                   {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
                   <div class="d-flex">
+                    <div class="small-img-box">
+                        <!-- Image -->
+                        {% if section.settings.locationIcon == blank %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+                        {% else %}
+                        <img 
+                            class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                            src="{{ section.settings.locationIcon | img_url: img_size, crop: 'center' }}"
+                            alt="{{ section.settings.locationIcon.alt | escape }}" 
+                            
+                            loading="lazy">
+                        {% endif %}
+                        <div class="cont-tab">
+                            <h6>Location</h6>
+                            <p>{{ section.settings.locationText }}</p>
+                        </div>
+                    </div>
 <div class="small-img-box">
                         <!-- Image -->
                         {% if section.settings.emailIcon == blank %}
