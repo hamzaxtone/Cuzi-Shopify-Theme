@@ -35,7 +35,14 @@
     </div>
     <div class="image-with-text">
       <div class="row my-10">
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <div class="contact-box">
+            {% unless section.settings.box1_heading == blank -%}
+              <h6>{{ section.settings.box1_heading }}</h6>
+            {%- endunless %}
+            {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
+          </div>
+        </div>
         <div class="col-md-6"></div>
       </div>
     </div>
