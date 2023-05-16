@@ -5,38 +5,35 @@
 {% endcapture %}
 
 <article class="">
+  <div
+    class="container mx-auto"
+    style="{{ max_width }}"
+  >
+    <!-- Image -->
+    {% unless section.settings.img == blank %}
+      {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+      <img
+        class="img-fluid mb-5 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}rounded{% endif %}"
+        src="{{ section.settings.img | img_url: img_size, crop: 'center' }}"
+        alt="{{ section.settings.img.alt }}"
+        width="{{ section.settings.img_width }}"
+        height="{{ section.settings.img_height }}"
+      >
+    {% endunless %}
 
-    <div 
-        class="container mx-auto"
-        style="{{ max_width }}">
+    <!-- Header -->
+    <header class="heading-wrapper mb-2 overflow-hidden text-center">
+      <!-- Heading -->
+      <h1 class="heading {{ section.settings.heading_size }}">
+        {{ page.title }}
+      </h1>
+    </header>
 
-        <!-- Image -->
-        {% unless section.settings.img == blank %}
-            {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
-            <img 
-                class="img-fluid mb-5 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}rounded{% endif %}" 
-                src="{{ section.settings.img | img_url: img_size, crop: 'center' }}" 
-                alt="{{ section.settings.img.alt }}"
-                width="{{ section.settings.img_width }}" 
-                height="{{ section.settings.img_height }}">
-        {% endunless %}
-
-        <!-- Header -->
-        <header class="heading-wrapper mb-2 overflow-hidden text-center">
-
-            <!-- Heading -->
-            <h1 class="heading {{ section.settings.heading_size }}">
-                {{ page.title }}
-            </h1>
-
-        </header>
-
-        <!-- Description -->
-        <div class="description rte">
-            {{ page.content }}
-        </div>
-
+    <!-- Description -->
+    <div class="description rte">
+      {{ page.content }}
     </div>
+  </div>
 </article>
 
 {% schema %}
