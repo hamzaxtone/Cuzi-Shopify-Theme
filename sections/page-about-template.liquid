@@ -64,8 +64,8 @@
     <div class="who-we-are">
       <div class="row my-10">
         <div class="col-md-12">
-          {% unless section.settings.whoWeAre_heading == blank -%}
-            <h2 class="heading h2 text-center">{{ section.settings.whoWeAre_heading }}</h2>
+          {% unless section.settings.whoWeAreHeading == blank -%}
+            <h2 class="heading h2 text-center">{{ section.settings.whoWeAreHeading }}</h2>
           {%- endunless %}
         </div>
         <div class="col-md-6"></div>
@@ -109,9 +109,20 @@
             "label": "Why Cuzi"
         },
       {
+            "type": "richtext",
+            "id": "why_desc",
+            "label": "Why Cuzi Description"
+        },
+
+      {
             "type": "text",
             "id": "how_we_heading",
             "label": "how we started"
+        },
+      {
+            "type": "richtext",
+            "id": "how_we_desc",
+            "label": "how we started Description"
         },
         {
             "type": "header",
