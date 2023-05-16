@@ -68,8 +68,26 @@
             <h2 class="heading h2 text-center">{{ section.settings.whoWeAreHeading }}</h2>
           {%- endunless %}
         </div>
-        <div class="col-md-6"></div>
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <div class="why-cuzi">
+            {% unless section.settings.why_heading == blank -%}
+              <h2 class="heading h2 text-start">{{ section.settings.why_heading }}</h2>
+            {%- endunless %}
+            {% unless section.settings.why_desc == blank -%}
+              <p>{{ section.settings.why_desc }}</p>
+            {%- endunless %}
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="why-cuzi">
+            {% unless section.settings.how_we_heading == blank -%}
+              <h2 class="heading h2 text-start">{{ section.settings.how_we_heading }}</h2>
+            {%- endunless %}
+            {% unless section.settings.how_we_desc == blank -%}
+              <p>{{ section.settings.how_we_desc }}</p>
+            {%- endunless %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
