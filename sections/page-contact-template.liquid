@@ -24,7 +24,15 @@
         <div class="description rte text-center text-muted overflow-hidden mb-4">
             {{ page.content }}
         </div>
-
+        <div class="row">
+          <div class="col-md-6">
+            
+          </div>
+          <div class="col-md-6">
+            <img src="">
+          </div>
+          
+        </div>
         <!-- Contact form -->
         {% form 'contact', class: 'contact-form mb-8' %}
 
@@ -113,6 +121,11 @@
         {
             "type": "header",
             "content": "General settings"
+        },
+        {
+            "type": "image_picker",
+            "id": "left_img",
+            "label": "Left Side Image"
         },
         {
             "type": "text",
