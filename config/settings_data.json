@@ -827,6 +827,16 @@
           "margin_top": 0,
           "margin_bottom": 0
         }
+      },
+      "page-contact-template": {
+        "type": "page-contact-template",
+        "settings": {
+          "box1_heading": "Get in touch",
+          "box1_desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>",
+          "left_img": "shopify:\/\/shop_images\/Rectangle_41.png",
+          "max_width": "768",
+          "heading_size": "display-5"
+        }
       }
     },
     "content_for_index": [
