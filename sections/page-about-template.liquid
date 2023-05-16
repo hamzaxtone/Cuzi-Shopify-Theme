@@ -20,19 +20,20 @@
         height="{{ section.settings.img_height }}"
       >
     {% endunless %}
+    {% comment %}
+      <!-- Header -->
+      <header class="heading-wrapper mb-2 overflow-hidden text-center">
+        <!-- Heading -->
+        <h1 class="heading {{ section.settings.heading_size }}">
+          {{ page.title }}
+        </h1>
+      </header>
 
-    <!-- Header -->
-    <header class="heading-wrapper mb-2 overflow-hidden text-center">
-      <!-- Heading -->
-      <h1 class="heading {{ section.settings.heading_size }}">
-        {{ page.title }}
-      </h1>
-    </header>
-
-    <!-- Description -->
-    <div class="description rte">
-      {{ page.content }}
-    </div>
+      <!-- Description -->
+      <div class="description rte">
+        {{ page.content }}
+      </div>
+    {% endcomment %}
   </div>
 </article>
 
