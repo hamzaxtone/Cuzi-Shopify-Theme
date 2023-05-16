@@ -391,9 +391,10 @@
       "page-about-template": {
         "type": "page-about-template",
         "settings": {
+          "box1_heading": "OUR STORY",
+          "box1_desc": "",
           "max_width": "768",
           "heading_size": "display-5",
-          "img": "shopify:\/\/shop_images\/lifestyle-1.jpg",
           "img_width": "1200",
           "img_height": "675",
           "img_thumbnail": true
