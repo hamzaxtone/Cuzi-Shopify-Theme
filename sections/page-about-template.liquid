@@ -71,14 +71,14 @@
         <div class="col-md-6">
           <div class="why-cuzi">
             <div class="box-img">
-              {% if section.settings.left_img == blank %}
+              {% if section.settings.why_img == blank %}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
               {% else %}
                 {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
                 <img
-                  class=" img-fluid h-auto mb-3 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
-                  src="{{ section.settings.left_img | img_url: img_size, crop: 'center' }}"
-                  alt="{{ section.settings.left_img.alt | escape }}"
+                  class=" img-fluid h-auto mb-2 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
+                  src="{{ section.settings.why_img | img_url: img_size, crop: 'center' }}"
+                  alt="{{ section.settings.why_img.alt | escape }}"
                   loading="lazy"
                 >
               {% endif %}
@@ -93,6 +93,19 @@
         </div>
         <div class="col-md-6">
           <div class="how-cuzi">
+            <div class="box-img">
+              {% if section.settings.how_we_img == blank %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+              {% else %}
+                {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+                <img
+                  class=" img-fluid h-auto mb-2 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
+                  src="{{ section.settings.how_we_img | img_url: img_size, crop: 'center' }}"
+                  alt="{{ section.settings.how_we_img.alt | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
             {% unless section.settings.how_we_heading == blank -%}
               <h2 class="heading h2 text-start">{{ section.settings.how_we_heading }}</h2>
             {%- endunless %}
