@@ -15,7 +15,7 @@
       {% else %}
         <img
           class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
-          src="{{ section.settings.Image | img_url: img_size, crop: 'center' }}"
+          src="{{ section.settings.Image | img_url: 'full', crop: 'center' }}"
           alt="{{ section.settings.Image.alt | escape }}"
 
           loading="lazy"
