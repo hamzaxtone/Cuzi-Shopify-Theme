@@ -32,7 +32,27 @@
               <div class="contact-box">
                  {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
                   {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
+                  <div class="d-flex">
+<div class="small-img-box">
+                        <!-- Image -->
+                        {% if section.settings.emailIcon == blank %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+                        {% else %}
+                        <img 
+                            class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                            src="{{ section.settings.emailIcon | img_url: img_size, crop: 'center' }}"
+                            alt="{{ section.settings.emailIcon.alt | escape }}" 
+                            
+                            loading="lazy">
+                        {% endif %}
+                        <div class="cont-tab">
+                            <h6>Email Us</h6>
+                            <p>{{ section.settings.emailText }}</p>
+                        </div>
+                    </div>
+                    
                   </div>
+              </div>
           </div>
           <div class="col-md-6">
             <div class="contact-box-img">
