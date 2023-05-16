@@ -29,7 +29,16 @@
             
           </div>
           <div class="col-md-6">
-            <img src="">
+            {% if section.settings.left_img == blank %}
+{{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+{% else %}
+{% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+<img 
+    class=" img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+    src="{{ section.settings.left_img | img_url: img_size, crop: 'center' }}"
+    alt="{{ section.settings.left_img.alt | escape }}"  
+    loading="lazy">
+{% endif %}
           </div>
           
         </div>
