@@ -828,7 +828,7 @@
       "fb0125e1-5353-4764-afb2-c961b8fe2ffd": {
         "type": "full-section-image",
         "settings": {
-          "Image": "shopify:\/\/shop_images\/text-image.svg",
+          "Image": "shopify:\/\/shop_images\/excuse.png",
           "classes": "textImage-minus",
           "container": false,
           "padding_top": 0,
