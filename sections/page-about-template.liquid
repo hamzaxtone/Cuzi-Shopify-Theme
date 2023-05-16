@@ -63,7 +63,11 @@
 
     <div class="who-we-are">
       <div class="row my-10">
-        <div class="col-md-12"></div>
+        <div class="col-md-12">
+          {% unless section.settings.whoWeAre_heading == blank -%}
+            <h2 class="heading h2 text-center">{{ section.settings.whoWeAre_heading }}</h2>
+          {%- endunless %}
+        </div>
         <div class="col-md-6"></div>
         <div class="col-md-6"></div>
       </div>
