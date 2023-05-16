@@ -28,8 +28,10 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-             {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
+              <div class="contact-box">
+                 {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
                   {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
+                  </div>
           </div>
           <div class="col-md-6">
             {% if section.settings.left_img == blank %}
