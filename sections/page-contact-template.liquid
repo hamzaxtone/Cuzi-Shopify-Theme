@@ -34,6 +34,7 @@
                   </div>
           </div>
           <div class="col-md-6">
+            <div class="contact-box-img">
             {% if section.settings.left_img == blank %}
 {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
 {% else %}
@@ -44,6 +45,7 @@
     alt="{{ section.settings.left_img.alt | escape }}"  
     loading="lazy">
 {% endif %}
+            </div>
           </div>
           
         </div>
