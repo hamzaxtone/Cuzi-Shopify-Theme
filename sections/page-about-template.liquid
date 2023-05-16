@@ -6,7 +6,7 @@
 
 <article class="">
   <div
-    class="container mx-auto"
+    class="mx-auto"
     style="{{ max_width }}"
   >
     <!-- Image -->
@@ -34,28 +34,30 @@
       {{ page.content }}
     </div>
     <div class="image-with-text">
-      <div class="row my-10">
-        <div class="col-md-6">
-          <div class="normal-heading-text">
-            {% unless section.settings.box1_heading == blank -%}
-              <h2 class="heading h2">{{ section.settings.box1_heading }}</h2>
-            {%- endunless %}
-            {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
+      <div class="container">
+        <div class="row my-10">
+          <div class="col-md-6">
+            <div class="normal-heading-text">
+              {% unless section.settings.box1_heading == blank -%}
+                <h2 class="heading h2">{{ section.settings.box1_heading }}</h2>
+              {%- endunless %}
+              {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
+            </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="contact-box-img">
-            {% if section.settings.left_img == blank %}
-              {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
-            {% else %}
-              {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
-              <img
-                class=" img-fluid h-auto mb-3 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
-                src="{{ section.settings.left_img | img_url: img_size, crop: 'center' }}"
-                alt="{{ section.settings.left_img.alt | escape }}"
-                loading="lazy"
-              >
-            {% endif %}
+          <div class="col-md-6">
+            <div class="contact-box-img">
+              {% if section.settings.left_img == blank %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+              {% else %}
+                {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+                <img
+                  class=" img-fluid h-auto mb-3 {% if section.settings.img_thumbnail %}{% else %}{% endif %}"
+                  src="{{ section.settings.left_img | img_url: img_size, crop: 'center' }}"
+                  alt="{{ section.settings.left_img.alt | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
