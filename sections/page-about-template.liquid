@@ -36,7 +36,7 @@
     <div class="image-with-text">
       <div class="container">
         <div class="row my-10">
-          <div class="col-md-6">
+          <div class="col-md-6 py-2">
             <div class="normal-heading-text">
               {% unless section.settings.box1_heading == blank -%}
                 <h2 class="heading h2">{{ section.settings.box1_heading }}</h2>
@@ -44,7 +44,7 @@
               {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 py-2">
             <div class="contact-box-img">
               {% if section.settings.left_img == blank %}
                 {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
