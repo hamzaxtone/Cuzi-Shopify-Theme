@@ -771,9 +771,9 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/cuzi-product.png",
-              "title": "healthy JUICE",
+              "title": "Cuzi Chicha Morada",
               "title_size": "h3",
-              "description": "<p>THERE ARE Lorem Ipsum available<\/p>"
+              "description": "<p>An iconic Peruvian elixir made with exotic purple corn, fragrant<br\/>spices, and succulent fruit juices.<\/p>"
             }
           }
         },
