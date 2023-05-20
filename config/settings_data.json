@@ -92,8 +92,8 @@
             "type": "content",
             "settings": {
               "img": "shopify:\/\/shop_images\/sugar.svg",
-              "heading": "No Sugar",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
+              "heading": "No added sugars",
+              "text": "<p>Refreshingly Light, Low Sugar Delight: Sip guilt-free, savor the<br\/>taste!<\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -102,8 +102,8 @@
             "type": "content",
             "settings": {
               "img": "shopify:\/\/shop_images\/juice.svg",
-              "heading": "100% Pure juice",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
+              "heading": "The Power of Purple",
+              "text": "<p>Packed with antioxidants, purple corn provides a<br\/>natural boost to your immune system and promotes overall well-being.<\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
@@ -112,8 +112,8 @@
             "type": "content",
             "settings": {
               "img": "shopify:\/\/shop_images\/natural.svg",
-              "heading": "natural Occurring",
-              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore <\/p>",
+              "heading": "Elevate your Senses",
+              "text": "<p>Option 1 : Immerse Your Palate in a Harmonious Fusion. The<br\/>Distinctive Flavor of Chicha Morada Unites the Richness of Purple Corn, Spices,<br\/>and Fruits!<\/p>",
               "btn_label": "",
               "btn_url": "#"
             }
