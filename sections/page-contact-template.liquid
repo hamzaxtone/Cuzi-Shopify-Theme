@@ -5,185 +5,189 @@
 {% endcapture %}
 
 <article class="">
+  <div
+    class="container mx-auto"
+    style="{{ max_width }}"
+  >
+    {% comment %}
+      <!-- Header -->
+      <div class="heading-wrapper mb-0 overflow-hidden text-center">
 
-    <div 
-        class="container mx-auto"
-        style="{{ max_width }}">
+          <!-- Heading -->
+          <h1 class="heading {{ section.settings.heading_size }}">
+              {{ page.title }}
+          </h1>
 
-      {% comment %}
-        <!-- Header -->
-        <div class="heading-wrapper mb-0 overflow-hidden text-center">
+      </div>
 
-            <!-- Heading -->
-            <h1 class="heading {{ section.settings.heading_size }}">
-                {{ page.title }}
-            </h1>
 
-        </div>
-      
+      <!-- Description -->
+      <div class="description rte text-center text-muted overflow-hidden mb-4">
+          {{ page.content }}
+      </div>
+    {% endcomment %}
+    <div class="row my-10">
+      <div class="col-md-6">
+        <div class="contact-box">
+          {% unless section.settings.box1_heading == blank -%}
+            <h6>{{ section.settings.box1_heading }}</h6>
+          {%- endunless %}
+          {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
+          <div class="d-flex mt-5">
+            <div class="small-img-box col-md-6">
+              <!-- Image -->
+              {% if section.settings.locationIcon == blank %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
+              {% else %}
+                <img
+                  class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                  src="{{ section.settings.locationIcon | img_url: img_size, crop: 'center' }}"
+                  alt="{{ section.settings.locationIcon.alt | escape }}"
 
-        <!-- Description -->
-        <div class="description rte text-center text-muted overflow-hidden mb-4">
-            {{ page.content }}
-        </div>
-        {% endcomment %}
-        <div class="row my-10">
-          <div class="col-md-6">
-              <div class="contact-box">
-                 {% unless section.settings.box1_heading == blank %}<h6>{{ section.settings.box1_heading }}</h6>{% endunless %}
-                  {% unless section.settings.box1_desc == blank %}{{ section.settings.box1_desc }}{% endunless %}
-                  <div class="d-flex mt-5">
-                    <div class="small-img-box col-md-6">
-                        <!-- Image -->
-                        {% if section.settings.locationIcon == blank %}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
-                        {% else %}
-                        <img 
-                            class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
-                            src="{{ section.settings.locationIcon | img_url: img_size, crop: 'center' }}"
-                            alt="{{ section.settings.locationIcon.alt | escape }}" 
-                            
-                            loading="lazy">
-                        {% endif %}
-                        <div class="cont-tab">
-                            <h6>Location</h6>
-                            <p>{{ section.settings.locationText }}</p>
-                        </div>
-                    </div>
-<div class="small-img-box col-md-6">
-                        <!-- Image -->
-                        {% if section.settings.emailIcon == blank %}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
-                        {% else %}
-                        <img 
-                            class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
-                            src="{{ section.settings.emailIcon | img_url: img_size, crop: 'center' }}"
-                            alt="{{ section.settings.emailIcon.alt | escape }}" 
-                            
-                            loading="lazy">
-                        {% endif %}
-                        <div class="cont-tab">
-                            <h6>Email Us</h6>
-                            <p>{{ section.settings.emailText }}</p>
-                        </div>
-                    </div>
-                    
-                  </div>
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="cont-tab">
+                <h6>Location</h6>
+                <p>{{ section.settings.locationText }}</p>
               </div>
-          </div>
-          <div class="col-md-6">
-            <div class="contact-box-img">
-            {% if section.settings.left_img == blank %}
-{{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }}
-{% else %}
-{% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
-<img 
-    class=" img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
-    src="{{ section.settings.left_img | img_url: img_size, crop: 'center' }}"
-    alt="{{ section.settings.left_img.alt | escape }}"  
-    loading="lazy">
-{% endif %}
+            </div>
+            <div class="small-img-box col-md-6">
+              <!-- Image -->
+              {% if section.settings.emailIcon == blank %}
+                <!-- {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }} -->
+              {% else %}
+                <img
+                  class="many-variations-img img-fluid {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+                  src="{{ section.settings.emailIcon | img_url: img_size, crop: 'center' }}"
+                  alt="{{ section.settings.emailIcon.alt | escape }}"
+
+                  loading="lazy"
+                >
+              {% endif %}
+              <div class="cont-tab">
+                <h6>Email Us</h6>
+                <p>{{ section.settings.emailText }}</p>
+              </div>
             </div>
           </div>
-          
         </div>
-        <!-- Contact form -->
-      <div class="default-form">
-        {% form 'contact', class: 'contact-form my-8' %}
+      </div>
+      <div class="col-md-6">
+        <div class="contact-box-img">
+          {% if section.settings.left_img == blank %}
+            <!-- {{ 'image' | placeholder_svg_tag: 'placeholder-svg bg-light img-fluid' }} -->
+          {% else %}
+            {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+            <img
+              class=" img-fluid mb-3 {% if section.settings.img_thumbnail %}img-thumbnail{% else %}{% endif %}"
+              src="{{ section.settings.left_img | img_url: img_size, crop: 'center' }}"
+              alt="{{ section.settings.left_img.alt | escape }}"
+              loading="lazy"
+            >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- Contact form -->
+    <div class="default-form">
+      {% form 'contact', class: 'contact-form my-8' %}
+        <!-- Form success -->
+        {% if form.posted_successfully? %}
+          <p class="form-success alert alert-success mb-4" role="alert">
+            {{ 'general.contact.post_success' | t }}
+          </p>
+        {% endif %}
 
-            <!-- Form success -->
-            {% if form.posted_successfully? %}
-                <p class="form-success alert alert-success mb-4" role="alert">
-                    {{ 'general.contact.post_success' | t }}
-                </p>
-            {% endif %}
+        <!-- Form errors -->
+        {{ form.errors | default_errors }}
 
-            <!-- Form errors -->
-            {{ form.errors | default_errors }}
+        <!-- Form fields -->
+        <div class="row g-3 mb-3">
+          <div class="form-group col-md-6">
+            <input
+              class="form-control"
+              type="text"
+              name="contact[name]"
+              id="ContactFormName"
+              value="{{ customer.name }}"
+              placeholder="{{ 'general.contact.name' | t }}"
+              aria-label="{{ 'general.contact.name' | t }}"
+              required
+            >
+          </div>
 
-            <!-- Form fields -->
-            <div class="row g-3 mb-3">
-                <div class="form-group col-md-6">
-                    <input 
-                        class="form-control" 
-                        type="text" 
-                        name="contact[name]" 
-                        id="ContactFormName" 
-                        value="{{ customer.name }}"  
-                        placeholder="{{ 'general.contact.name' | t }}" 
-                        aria-label="{{ 'general.contact.name' | t }}" 
-                        required>
-                </div>
+          <div class="form-group col-md-6">
+            <input
+              class="form-control"
+              type="email"
+              name="contact[email]"
+              id="ContactFormEmail"
+              value="{{ customer.email }}"
+              placeholder="{{ 'general.contact.email' | t }}"
+              aria-label="{{ 'general.contact.email' | t }}"
+              spellcheck="false"
+              autocomplete="off"
+              autocapitalize="off"
+              required
+            >
+          </div>
 
-                <div class="form-group col-md-6">
-                    <input 
-                        class="form-control" 
-                        type="email" 
-                        name="contact[email]" 
-                        id="ContactFormEmail" 
-                        value="{{ customer.email }}" 
-                        placeholder="{{ 'general.contact.email' | t }}" 
-                        aria-label="{{ 'general.contact.email' | t }}" 
-                        spellcheck="false" 
-                        autocomplete="off" 
-                        autocapitalize="off" 
-                        required>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <input 
-                        class="form-control" 
-                        type="tel" 
-                        name="contact[phone]" 
-                        id="ContactFormPhone" 
-                        value="{{ customer.phone }}" 
-                        placeholder="{{ 'general.contact.phone' | t }}" 
-                        aria-label="{{ 'general.contact.phone' | t }}" 
-                        pattern="[0-9\-]*">
-                </div>
-                <div class="form-group col-md-6">
-                    <input 
-                        class="form-control" 
-                        type="tel" 
-                        name="contact[ZipCode]" 
-                        id="ContactFormZipCode" 
-                        value="{{ customer.ZipCode }}" 
-                        placeholder="{{ 'general.contact.ZipCode' | t }}" 
-                        aria-label="{{ 'general.contact.ZipCode' | t }}" 
-                        pattern="[0-9\-]*">
-                </div>
-              <div class="form-group col-md-12">
-                <!-- Textarea -->
+          <div class="form-group col-md-6">
+            <input
+              class="form-control"
+              type="tel"
+              name="contact[phone]"
+              id="ContactFormPhone"
+              value="{{ customer.phone }}"
+              placeholder="{{ 'general.contact.phone' | t }}"
+              aria-label="{{ 'general.contact.phone' | t }}"
+              pattern="[0-9\-]*"
+            >
+          </div>
+          <div class="form-group col-md-6">
+            <input
+              class="form-control"
+              type="tel"
+              name="contact[ZipCode]"
+              id="ContactFormZipCode"
+              value="{{ customer.ZipCode }}"
+              placeholder="{{ 'general.contact.ZipCode' | t }}"
+              aria-label="{{ 'general.contact.ZipCode' | t }}"
+              pattern="[0-9\-]*"
+            >
+          </div>
+          <div class="form-group col-md-12">
+            <!-- Textarea -->
             <div class="form-group mb-3">
-                <textarea 
-                    class="form-control" 
-                    rows="8" 
-                    name="contact[body]" 
-                    id="ContactFormMessage" 
-                    placeholder="{{ 'general.contact.message' | t }}" 
-                    aria-label="{{ 'general.contact.message' | t }}" 
-                    required>
+              <textarea
+                class="form-control"
+                rows="8"
+                name="contact[body]"
+                id="ContactFormMessage"
+                placeholder="{{ 'general.contact.message' | t }}"
+                aria-label="{{ 'general.contact.message' | t }}"
+                required
+              >
                     {%- if form.body -%}
                         {{- form.body -}}
                     {%- endif -%}
                 </textarea>
             </div>
-              </div>
-              <div class="form-group col-md-12">
-                <input 
-                type="submit" 
-                class="btn btn-primary" 
-                value="{{ 'general.contact.send' | t }}">
-              </div>
-            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <input
+              type="submit"
+              class="btn btn-primary"
+              value="{{ 'general.contact.send' | t }}"
+            >
+          </div>
+        </div>
 
-            
-
-            <!-- Submit btn -->
-            
-        {% endform %}
-</div>
+        <!-- Submit btn -->
+      {% endform %}
     </div>
+  </div>
 </article>
 
 {% schema %}
