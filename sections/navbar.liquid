@@ -69,18 +69,18 @@
 
         <li
           id="cart-nav-item"
-          class="mx-1 nav-item dropdown"
+          class="mx-1 nav-item dropdown-"
         >
           <a
             id="cart-nav-link"
             class="nav-link d-flex align-items-center {% if template.name == 'cart' %}active{% endif %}"
             href="/cart"
-            data-bs-toggle="dropdown"
+            -data-bs-toggle="dropdown"
             {% if template.name == 'cart' %}
               aria-current="page"
             {% endif %}
-            aria-expanded="false"
-            role="button"
+            -aria-expanded="false"
+            -role="button"
           >
             {% render 'icon-cart', size: 22 %}
             <span class="visually-hidden">
