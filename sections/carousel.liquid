@@ -1,139 +1,144 @@
-{% assign mt =  section.settings.margin_top | prepend: 'mt-' %}
-{% assign mb =  section.settings.margin_bottom | prepend: 'mb-' %}
+{% assign mt = section.settings.margin_top | prepend: 'mt-' %}
+{% assign mb = section.settings.margin_bottom | prepend: 'mb-' %}
 
 {% if section.settings.interval > 0 %}
-    {% assign interval = section.settings.interval | times: 1000 %}
+  {% assign interval = section.settings.interval | times: 1000 %}
 {% else %}
-    {% assign interval = false %}
+  {% assign interval = false %}
 {% endif %}
 
 {% if section.settings.bg_image == blank %}
 {% else %}
-{% if section.settings.classes %}
+  {% if section.settings.classes %}
     <style>
-    
-    .{{section.settings.classes}} {
-        background-image: url( {{ section.settings.bg_image | img_url: 'full', crop: 'center' }});
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-    }
-    
+
+      .{{section.settings.classes}} {
+          background-image: url( {{ section.settings.bg_image | img_url: 'full', crop: 'center' }});
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: bottom center;
+      }
     </style>
-    {% endif %}
+  {% endif %}
 {% endif %}
 <div
-    id="{{ 'carousel-wrapper' | append: section.id }}" 
-    
-        
-    
-    class="asd carousel-wrapper {% if section.settings.container %}container{% endif %} {{ mt }} {{ mb }} {% if section.settings.classes %}{{section.settings.classes}}{% endif %}">
+  id="{{ 'carousel-wrapper' | append: section.id }}"
 
-    <!-- Carousel -->
-    <div
-        id="{{ 'carousel-' | append: section.id }}"
-        class="carousel {{ section.settings.style }} {{ section.settings.transition }}"
-        data-bs-ride="carousel"
-        data-bs-pause="hover"
-        data-bs-interval="{{ interval }}">
+  class="asd carousel-wrapper {% if section.settings.container %}container{% endif %} {{ mt }} {{ mb }} {% if section.settings.classes %}{{section.settings.classes}}{% endif %}"
+>
+  <!-- Carousel -->
+  <div
+    id="{{ 'carousel-' | append: section.id }}"
+    class="carousel {{ section.settings.style }} {{ section.settings.transition }}"
+    data-bs-ride="carousel"
+    data-bs-pause="hover"
+    data-bs-interval="{{ interval }}"
+  >
+    <!-- Indicators -->
+    {% if section.settings.indicators %}
+      <ol class="carousel-indicators mb-3">
+        {% for block in section.blocks %}
+          <li
+            data-bs-target="#{{ 'carousel-' | append: section.id }}"
+            data-bs-slide-to="{{ forloop.index0 }}"
+            class="{% if forloop.first == true %} active {% endif %}"
+          ></li>
+        {% endfor %}
+      </ol>
+    {% endif %}
 
-        <!-- Indicators -->
-        {% if section.settings.indicators %}
-            <ol class="carousel-indicators mb-3">
-                {% for block in section.blocks %}
-                    <li
-                        data-bs-target="#{{ 'carousel-' | append: section.id }}"
-                        data-bs-slide-to="{{ forloop.index0 }}"
-                        class="{% if forloop.first == true %} active {% endif %}">
-                    </li>
-                {% endfor %}
-            </ol>
-        {% endif %}
-        
-        <div class="carousel-inner">
-            {% for block in section.blocks %}
-                <div
-                    class="carousel-item {% if forloop.first == true %}active{% endif %}">
-                    <div class="container">
-                          
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            {% if block.settings.title != blank or block.settings.description != blank %}
-                            <div class="carousel-caption">
-                                {% unless block.settings.title == blank %}
-                                    <h3 class="{{ block.settings.title_size }}">
-                                        {{ block.settings.title }}
-                                    </h3>
-                                {% endunless %}
-                                {% unless block.settings.description == blank %}
-                                    <div class="rte">
-                                        {{ block.settings.description }}
-                                    </div>
-                                {% endunless %}
-                              <a class="btn btn-transparent">Shop Now</a>
-                            </div>
-                            {% endif %}
-                        </div>  
-                        <div class="col-md-6 text-center">
-                            {% if block.settings.image != blank %}
-                            {% assign img_size      = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
-                            {% assign img_size_800  = 800 | divided_by: block.settings.image.aspect_ratio | round | prepend: '800x' %}
-                            <img
-                                class="img-fluid"
-                                src="{{ block.settings.image | img_url: img_size, crop: 'center' }}"
-                                srcset="{{ block.settings.image | img_url: img_size_800, crop: 'center' }} 800w, {{ block.settings.image | img_url: img_size, crop: 'center' }} 1600w"
-                                alt="{{ block.settings.image.alt }}"
-                                loading="lazy"
-                                >
-                        {% else %}
-                            {% capture current %}{% cycle 1, 2 %}{% endcapture %}<!-- Do not use new lines here -->
-                            {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg d-block bg-secondary' }}
-                        {% endif %}
-                        </div>  
-                    </div>    
-                    
-
-                    </div>
-                    
-
-                    
-
-                </div>
-            {% endfor %}
+    <div class="carousel-inner">
+      {% for block in section.blocks %}
+        <div
+          class="carousel-item {% if forloop.first == true %}active{% endif %}"
+        >
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                {% if block.settings.title != blank or block.settings.description != blank %}
+                  <div class="carousel-caption">
+                    {% unless block.settings.title == blank %}
+                      <h3 class="{{ block.settings.title_size }}">
+                        {{ block.settings.title }}
+                      </h3>
+                    {% endunless %}
+                    {% unless block.settings.description == blank %}
+                      <div class="rte">
+                        {{ block.settings.description }}
+                      </div>
+                    {% endunless %}
+                    <form method="post" action="/cart/add">
+                      <input name="id" value="8288176308514" type="hidden">
+                      <input name="add" value="ORDER NOW" type="submit">
+                    </form>
+                    <a class="btn btn-transparent">Shop Now</a>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="col-md-6 text-center">
+                {% if block.settings.image != blank %}
+                  {% assign img_size = section.settings.img_width | append: 'x' | append: section.settings.img_height %}
+                  {% assign img_size_800 = 800
+                    | divided_by: block.settings.image.aspect_ratio
+                    | round
+                    | prepend: '800x'
+                  %}
+                  <img
+                    class="img-fluid"
+                    src="{{ block.settings.image | img_url: img_size, crop: 'center' }}"
+                    srcset="{{ block.settings.image | img_url: img_size_800, crop: 'center' }} 800w, {{ block.settings.image | img_url: img_size, crop: 'center' }} 1600w"
+                    alt="{{ block.settings.image.alt }}"
+                    loading="lazy"
+                  >
+                {% else %}
+                  {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                  <!-- Do not use new lines here -->
+                  {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg d-block bg-secondary' }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
         </div>
-
-        {% if section.settings.controls %}
-            <a 
-                class="carousel-control-prev" 
-                href="#{{ 'carousel-' | append: section.id }}" 
-                role="button" 
-                data-bs-slide="prev">
-                <span 
-                    class="carousel-control-prev-icon" 
-                    aria-hidden="true">
-                </span>
-                <span 
-                    class="visually-hidden">
-                    {{ 'general.previous' | t }}
-                </span>
-            </a>
-            <a 
-                class="carousel-control-next" 
-                href="#{{ 'carousel-' | append: section.id }}" 
-                role="button" 
-                data-bs-slide="next">
-                <span 
-                    class="carousel-control-next-icon" 
-                    aria-hidden="true">
-                </span>
-                <span 
-                    class="visually-hidden">
-                    {{ 'general.next' | t }}
-                </span>
-            </a>
-        {% endif %}
-
+      {% endfor %}
     </div>
+
+    {% if section.settings.controls %}
+      <a
+        class="carousel-control-prev"
+        href="#{{ 'carousel-' | append: section.id }}"
+        role="button"
+        data-bs-slide="prev"
+      >
+        <span
+          class="carousel-control-prev-icon"
+          aria-hidden="true"
+        >
+        </span>
+        <span
+          class="visually-hidden"
+        >
+          {{ 'general.previous' | t }}
+        </span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#{{ 'carousel-' | append: section.id }}"
+        role="button"
+        data-bs-slide="next"
+      >
+        <span
+          class="carousel-control-next-icon"
+          aria-hidden="true"
+        >
+        </span>
+        <span
+          class="visually-hidden"
+        >
+          {{ 'general.next' | t }}
+        </span>
+      </a>
+    {% endif %}
+  </div>
 </div>
 
 {% schema %}
