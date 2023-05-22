@@ -47,6 +47,18 @@
 
         <!-- Button -->
         {% if section.settings.btn_label != blank and section.settings.btn_url != blank %}
+          <form method="post" action="/cart/add">
+            <input name="id" value="45209974866210" type="hidden">
+            <!-- <input name="add" value="ORDER NOW" type="submit" /> -->
+            <button
+              class="image-with-text-btn btn my-2 btn-outline-primary "
+              name="add"
+              value="ORDER NOW"
+              type="submit"
+            >
+              Shop Now
+            </button>
+          </form>
           <a
             class="image-with-text-btn btn my-2 {{ section.settings.btn_color }} {{ section.settings.btn_size }}"
             href="{{ section.settings.btn_url }}"
