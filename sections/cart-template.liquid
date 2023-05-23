@@ -35,7 +35,7 @@
                   data-line-item-id="{{ forloop.index }}"
                 >
                   <div class="col-4">
-                    <a href="{{ line_item.url }}">
+                    <a d-href="{{ line_item.url }}">
                       {% assign img_size = section.settings.img_width
                         | append: 'x'
                         | append: section.settings.img_height
